@@ -15,11 +15,13 @@ public class ControladorJuego {
 	private List<ObjetoVivo> objetosVivos;
 	private List<Dibujable> dibujables;
 	private List<TecladoObservador> tecladoObservadores;
+	private List<MouseClickObservador> mouseClickObservadores;
 	private SuperficieDeDibujo superficieDeDibujo;	
 	
 	public ControladorJuego(){
 		this.objetosVivos = new ArrayList<ObjetoVivo>();
 		this.dibujables = new ArrayList<Dibujable>();
+		this.mouseClickObservadores = new ArrayList<MouseClickObservador>();
 		this.tecladoObservadores = new ArrayList<TecladoObservador>();
 	}
 	
@@ -95,19 +97,36 @@ public class ControladorJuego {
 	 * Se encarga de derivar el manejo del evento click al objeto vista correspondiente
 	 */
 	public void despacharMouseClick(int x, int y){
-		TecladoObservador mouseClickObservador;
-		Iterator<TecladoObservador> iterador = this.tecladoObservadores.iterator();
+		MouseClickObservador mouseClickObservador;
+		Iterator<MouseClickObservador> iterador = this.mouseClickObservadores.iterator();
 		while(iterador.hasNext()){
 			mouseClickObservador = iterador.next();
 			mouseClickObservador.MouseClick(x, y);
 		}
 	}
 	
-	public void agregarMouseClickObservador(TecladoObservador unMouseClickObservador){
-		this.tecladoObservadores.add(unMouseClickObservador);
+	public void agregarMouseClickObservador(MouseClickObservador unMouseClickObservador){
+		this.mouseClickObservadores.add(unMouseClickObservador);
 	}
 	
-	public void removerMouseClickObservador(TecladoObservador unMouseClickObservador){
-		this.tecladoObservadores.remove(unMouseClickObservador);
+	public void removerMouseClickObservador(MouseClickObservador unMouseClickObservador){
+		this.mouseClickObservadores.remove(unMouseClickObservador);
+	}
+	
+	public void despacharTecla(int codigoTecla, int modificadores){
+		TecladoObservador tecladoObservador;
+		Iterator<TecladoObservador> iterador = this.tecladoObservadores.iterator();
+		while(iterador.hasNext()){
+			tecladoObservador = iterador.next();
+			tecladoObservador.ManejarTecla(codigoTecla, modificadores);
+		}
+	}
+	
+	public void agregarTecladoObservador(TecladoObservador unTecladoObservador){
+		this.tecladoObservadores.add(unTecladoObservador);
+	}
+	
+	public void removerTecladoObservador(TecladoObservador unTecladoObservador){
+		this.tecladoObservadores.remove(unTecladoObservador);
 	}
 }

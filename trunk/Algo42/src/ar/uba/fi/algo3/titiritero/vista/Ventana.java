@@ -29,6 +29,7 @@ public class Ventana extends Frame implements SuperficieDeDibujo{
 	public Ventana(ControladorJuego unControlador){
 		this.controlador = unControlador;
 		this.addMouseListener(new MouseClickController(this.controlador));
+		this.addKeyListener(new TecladoController(this.controlador));
 	}
 	// es llamado internamente por el metodo repaint() de la clase Frame
 	public void update(Graphics g) {

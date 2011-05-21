@@ -1,5 +1,6 @@
 package ar.uba.fi.algo3.titiritero.ejemplo;
 
+import algo3.tp2.modelo.Jugador;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ejemplo.modelo.Mesa;
 import ar.uba.fi.algo3.titiritero.ejemplo.modelo.Pelota;
@@ -17,6 +18,7 @@ public class Programa {
 		 */
 		Pelota unaPelota = new Pelota();
 		Mesa unaMesa = new Mesa(200, 200);
+		Jugador jugador = new Jugador(30, 30);
 		unaPelota.setMesa(unaMesa);
 
 		/*
@@ -45,6 +47,7 @@ public class Programa {
 		 * para que este le de vida dentro del gameloop
 		 */
 		controlador.agregarObjetoVivo(unaPelota);
+		controlador.agregarObjetoVivo(jugador);
 		
 		/*
 		 * Agrego los objetos que actuan como vista a la lista de dibujables del controlador
@@ -56,6 +59,7 @@ public class Programa {
 		
 		
 		controlador.agregarMouseClickObservador(vistaMesa);
+		controlador.agregarTecladoObservador(jugador);
 		
 		/*
 		 * finalmente establezco el intervalo de sleep dentro del gameloop
