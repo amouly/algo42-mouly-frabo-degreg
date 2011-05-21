@@ -10,11 +10,17 @@ import java.util.List;
  * de ObjetosVivos y una Dibujables que son recorridas en cada gameloop.
  */
 public class ControladorJuego {
+	private long intervaloSimulacion;
+	private boolean estaEnEjecucion;
+	private List<ObjetoVivo> objetosVivos;
+	private List<Dibujable> dibujables;
+	private List<TecladoObservador> tecladoObservadores;
+	private SuperficieDeDibujo superficieDeDibujo;	
 	
 	public ControladorJuego(){
-		this.objetosVivos = new ArrayList();
-		this.dibujables = new ArrayList();
-		this.mouseClickObservadores = new ArrayList();
+		this.objetosVivos = new ArrayList<ObjetoVivo>();
+		this.dibujables = new ArrayList<Dibujable>();
+		this.tecladoObservadores = new ArrayList<TecladoObservador>();
 	}
 	
 	public void comenzar(){
@@ -59,9 +65,9 @@ public class ControladorJuego {
 	}
 
 	private void dibujar() {
-		Iterator iterador = dibujables.iterator();
+		Iterator<Dibujable> iterador = dibujables.iterator();
 		while(iterador.hasNext()){
-			Dibujable dibujable = (Dibujable)iterador.next();
+			Dibujable dibujable = iterador.next();
 			dibujable.dibujar(this.superficieDeDibujo);
 			//System.out.println(dib.getPosicionable().getX());
 			//System.out.println( dib.getPosicionable().getY());
@@ -71,9 +77,9 @@ public class ControladorJuego {
 	
 	private void simular() {
 		this.superficieDeDibujo.limpiar();
-		Iterator iterador = objetosVivos.iterator();
+		Iterator<ObjetoVivo> iterador = objetosVivos.iterator();
 		while(iterador.hasNext()){
-			((ObjetoVivo)iterador.next()).vivir();
+			(iterador.next()).vivir();
 		}
 	}
 
@@ -89,26 +95,19 @@ public class ControladorJuego {
 	 * Se encarga de derivar el manejo del evento click al objeto vista correspondiente
 	 */
 	public void despacharMouseClick(int x, int y){
-		MouseClickObservador mouseClickObservador;
-		Iterator iterador = this.mouseClickObservadores.iterator();
+		TecladoObservador mouseClickObservador;
+		Iterator<TecladoObservador> iterador = this.tecladoObservadores.iterator();
 		while(iterador.hasNext()){
-			mouseClickObservador = (MouseClickObservador)iterador.next();
+			mouseClickObservador = iterador.next();
 			mouseClickObservador.MouseClick(x, y);
 		}
 	}
 	
-	public void agregarMouseClickObservador(MouseClickObservador unMouseClickObservador){
-		this.mouseClickObservadores.add(unMouseClickObservador);
+	public void agregarMouseClickObservador(TecladoObservador unMouseClickObservador){
+		this.tecladoObservadores.add(unMouseClickObservador);
 	}
 	
-	public void removerMouseClickObservador(MouseClickObservador unMouseClickObservador){
-		this.mouseClickObservadores.remove(unMouseClickObservador);
+	public void removerMouseClickObservador(TecladoObservador unMouseClickObservador){
+		this.tecladoObservadores.remove(unMouseClickObservador);
 	}
-	
-	private long intervaloSimulacion;
-	private boolean estaEnEjecucion;
-	private List objetosVivos;
-	private List dibujables;
-	private List mouseClickObservadores;
-	private SuperficieDeDibujo superficieDeDibujo;	
 }

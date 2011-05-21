@@ -3,11 +3,11 @@ package ar.uba.fi.algo3.titiritero.vista;
 import java.awt.Color;
 
 import ar.uba.fi.algo3.titiritero.Dibujable;
-import ar.uba.fi.algo3.titiritero.MouseClickObservador;
+import ar.uba.fi.algo3.titiritero.TecladoObservador;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 
-public abstract class Figura implements Dibujable, MouseClickObservador {
+public abstract class Figura implements Dibujable, TecladoObservador {
 
 	private Color color;
 	private Posicionable posicionable;
