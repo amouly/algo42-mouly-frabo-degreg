@@ -5,5 +5,7 @@ import ar.uba.fi.algo3.titiritero.TecladoObservador;
 
 public class Jugador extends NaveAtacante implements TecladoObservador
 {
-	
+	public void ManejarTecla(int codigoTecla, int modificadores)
+	{
+	}
 }

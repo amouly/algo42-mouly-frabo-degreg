@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author Nicolas
- * Esta clase es la encargada de manejar todo el gameloop. Básicamente tiene una lista
+ * Esta clase es la encargada de manejar todo el gameloop. BÃ¡sicamente tiene una lista
  * de ObjetosVivos y una Dibujables que son recorridas en cada gameloop.
  */
 public class ControladorJuego {

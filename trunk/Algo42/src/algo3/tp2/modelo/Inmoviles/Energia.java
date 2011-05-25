@@ -1,4 +1,4 @@
-package algo3.tp2.modelo;
+package algo3.tp2.modelo.Inmoviles;
 
 import algo3.tp2.modelo.Inmovil;
 

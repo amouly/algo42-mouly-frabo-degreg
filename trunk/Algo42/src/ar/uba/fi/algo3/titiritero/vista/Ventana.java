@@ -12,14 +12,14 @@ import java.awt.event.WindowEvent;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 /*
- * ESta clase representa la superficie de dibujo, tipicamente ser· el formulario
- * principal de la aplicaciÛn y donde se dibujar· la vista.
+ * ESta clase representa la superficie de dibujo, tipicamente ser√° el formulario
+ * principal de la aplicaci√≥n y donde se dibujar√° la vista.
  * Esta clase utiliza la tecnica de doble buffering para evitar los efectos de flicking
  */
 public class Ventana extends Frame implements SuperficieDeDibujo{
 
 	/**
-	 * Esta yerba es generada autom·tica y a˙n no se su utilidad
+	 * Esta yerba es generada autom√°tica y a√∫n no se su utilidad
 	 */
 	private static final long serialVersionUID = 1L;
 
