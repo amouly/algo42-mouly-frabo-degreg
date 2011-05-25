@@ -4,5 +4,8 @@ import algo3.tp2.modelo.Inmoviles.Arma;
 
 public class Cohete extends Arma
 {
-	
+	public Cohete()
+	{
+		Poder = 5;
+	}
 }

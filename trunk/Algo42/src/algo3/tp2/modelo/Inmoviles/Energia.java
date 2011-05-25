@@ -6,15 +6,15 @@ import algo3.tp2.modelo.Inmovil;
 
 public class Energia extends Inmovil
 {
-	private int Valor;
+	private int Cantidad;
 	
-	public int GetValor()
+	public int GetCantidad()
 	{
-		return Valor;
+		return Cantidad;
 	}
 	
 	public void SetValor(int UnValor)
 	{
-		Valor = UnValor;
+		Cantidad = UnValor;
 	}
 }
