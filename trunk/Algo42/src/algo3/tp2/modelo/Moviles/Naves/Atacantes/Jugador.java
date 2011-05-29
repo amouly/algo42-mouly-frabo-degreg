@@ -1,11 +1,18 @@
-package algo3.tp2.modelo.Moviles.Naves.Atacantes;
+package algo3.tp2.modelo.moviles.naves.atacantes;
 
-import algo3.tp2.modelo.Moviles.Naves.NaveAtacante;
-import ar.uba.fi.algo3.titiritero.TecladoObservador;
+import java.awt.event.KeyEvent;
 
-public class Jugador extends NaveAtacante implements TecladoObservador
+import algo3.tp2.modelo.moviles.naves.NaveAtacante;
+import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
+
+public class Jugador extends NaveAtacante implements KeyPressedObservador
 {
 	public void ManejarTecla(int codigoTecla, int modificadores)
 	{
+	}
+
+	public void keyPressed(KeyEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,6 +1,6 @@
-package algo3.tp2.modelo.Moviles.Naves.Atacantes;
+package algo3.tp2.modelo.moviles.naves.atacantes;
 
-import algo3.tp2.modelo.Moviles.Naves.NaveAtacante;
+import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 
 public class Avioneta extends NaveAtacante
 {
