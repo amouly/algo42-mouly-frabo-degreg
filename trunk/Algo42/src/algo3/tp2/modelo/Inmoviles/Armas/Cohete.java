@@ -1,6 +1,6 @@
-package algo3.tp2.modelo;
+package algo3.tp2.modelo.inmoviles.armas;
 
-import algo3.tp2.modelo.Inmoviles.Arma;
+import algo3.tp2.modelo.inmoviles.Arma;
 
 public class Cohete extends Arma
 {
