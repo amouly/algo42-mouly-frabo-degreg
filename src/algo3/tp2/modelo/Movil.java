@@ -13,6 +13,17 @@ public class Movil implements ObjetoVivo, Posicionable
 	protected int PosX;
 	protected int PosY;
 	
+	public Movil()
+	{
+
+	}
+	
+	public void EnPosicionInicial(int PosInicialX, int PosInicialY)
+	{
+		this.PosX = PosInicialX;
+		this.PosY = PosInicialY;
+	}
+	
 	public int getX()
 	{
 		return PosX;
@@ -26,6 +37,11 @@ public class Movil implements ObjetoVivo, Posicionable
 	public int GetEnergia()
 	{
 		return TanqueEnergia.GetCantidad();
+	}
+	
+	public void RestarEnergia(int UnValor)
+	{
+		TanqueEnergia.RestarCantidad(UnValor);
 	}
 	
 	public void vivir()
