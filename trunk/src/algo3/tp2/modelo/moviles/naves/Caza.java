@@ -1,8 +1,8 @@
 package algo3.tp2.modelo.moviles.naves.atacantes;
 
-import algo3.tp2.modelo.moviles.naves.NaveAtacante;
+import algo3.tp2.modelo.moviles.Nave;
 
-public class Caza extends NaveAtacante
+public class Caza extends Nave
 {
 	public Caza()
 	{

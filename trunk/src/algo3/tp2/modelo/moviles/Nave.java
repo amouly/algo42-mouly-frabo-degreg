@@ -9,7 +9,7 @@ public class Nave extends Movil
 	
 	public Nave()
 	{
-		TanqueEnergia.SetValor(10);
+		TanqueEnergia.SetCantidad(10);
 	}
 	
 	public int GetPuntaje()
@@ -20,5 +20,10 @@ public class Nave extends Movil
 	public int GetValor()
 	{
 		return Valor;
+	}
+	
+	public void AumentarPuntaje(int UnValor)
+	{
+		this.Puntaje += UnValor;
 	}
 }

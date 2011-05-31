@@ -13,8 +13,13 @@ public class Energia extends Inmovil
 		return Cantidad;
 	}
 	
-	public void SetValor(int UnValor)
+	public void SetCantidad(int UnValor)
 	{
 		Cantidad = UnValor;
+	}
+	
+	public void RestarCantidad(int UnaCantidad)
+	{
+		this.Cantidad -= UnaCantidad;
 	}
 }
