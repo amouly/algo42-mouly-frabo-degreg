@@ -4,22 +4,18 @@ import algo3.tp2.modelo.Inmovil;
 
 /* Define el comportamiento de un Tanque de Energía. */
 
-public class Energia extends Inmovil
-{
-	private int Cantidad;
-	
-	public int GetCantidad()
-	{
-		return Cantidad;
+public class Energia extends Inmovil {
+	private int cantidad;
+
+	public int getCantidad() {
+		return cantidad;
 	}
-	
-	public void SetCantidad(int UnValor)
-	{
-		Cantidad = UnValor;
+
+	public void setCantidad(int unValor) {
+		cantidad = unValor;
 	}
-	
-	public void RestarCantidad(int UnaCantidad)
-	{
-		this.Cantidad -= UnaCantidad;
+
+	public void restarCantidad(int unaCantidad) {
+		this.cantidad -= unaCantidad;
 	}
 }

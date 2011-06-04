@@ -7,4 +7,10 @@ public class ZigZag implements Vuelo
 	public void Avanzar()
 	{
 	}
+
+	@Override
+	public void Avanzar(int PosInicialX, int PosInicialY) {
+		// TODO Auto-generated method stub
+		
+	}
 }
