@@ -1,4 +1,4 @@
-package algo3.tp2.modelo.moviles.naves.no_atacantes;
+package algo3.tp2.modelo.moviles.naves;
 
 import algo3.tp2.modelo.moviles.Nave;
 
@@ -6,6 +6,6 @@ public class Helicoptero extends Nave
 {
 	public Helicoptero()
 	{
-		Valor = -200;
+		valor = -200;
 	}
 }
