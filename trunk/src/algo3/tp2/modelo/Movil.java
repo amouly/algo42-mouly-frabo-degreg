@@ -11,7 +11,7 @@ import ar.uba.fi.algo3.titiritero.Posicionable;
 public abstract class Movil implements ObjetoVivo, Posicionable {
 	protected Energia tanqueEnergia; /* Energía acumulada que posee un Móvil. */
 	protected Vuelo formaVuelo; /* Forma con la que se desplaza un Móvil. */
-	protected Rectangle cuerpo; /* Cuerpo físico del móvil, dimensión y posición */
+	protected Rectangle cuerpo; /* Cuerpo físico del móvil, dimensión y posición. */
 
 	@Override
 	public int getX() {
