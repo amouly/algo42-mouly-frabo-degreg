@@ -1,6 +1,8 @@
 package algo3.tp2.modelo;
 
+import java.awt.Point;
+
 public interface Vuelo
 {
-	void Avanzar(int PosInicialX, int PosInicialY);
+	public Point getVariacionPosicion();
 }
