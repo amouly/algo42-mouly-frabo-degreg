@@ -6,6 +6,7 @@ public class Cohete extends Arma
 {
 	public Cohete()
 	{
-		Poder = 5;
+		poder = 5;
+		cantidadBalas = 5;
 	}
 }

@@ -6,6 +6,7 @@ public class Laser extends Arma
 {
 	public Laser()
 	{
-		Poder = 1;
+		poder = 1;
+		cantidadBalas = 10000;
 	}
 }
