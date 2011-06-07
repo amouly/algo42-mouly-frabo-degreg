@@ -6,6 +6,7 @@ public class Torpedo extends Arma
 {
 	public Torpedo()
 	{
-		Poder = 15;
+		poder = 15;
+		cantidadBalas = 15;
 	}
 }

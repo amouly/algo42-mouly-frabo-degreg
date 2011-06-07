@@ -1,9 +1,11 @@
-package algo3.tp2.modelo.moviles.naves;
+package algo3.tp2.modelo.moviles.naves.atacantes;
 
-import algo3.tp2.modelo.moviles.Nave;
+import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 
-public class Jugador extends Nave {
-	public Jugador() {
+public class Jugador extends NaveAtacante
+{
+	public Jugador()
+	{
 		super();
 	}
 
