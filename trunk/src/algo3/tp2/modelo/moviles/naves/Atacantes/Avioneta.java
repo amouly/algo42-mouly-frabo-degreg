@@ -11,4 +11,10 @@ public class Avioneta extends NaveAtacante {
 		this.valor = 20;
 		this.formaVuelo = new Recto(3);
 	}
+
+	@Override
+	public void vivir() {
+		// TODO Auto-generated method stub
+		
+	}
 }

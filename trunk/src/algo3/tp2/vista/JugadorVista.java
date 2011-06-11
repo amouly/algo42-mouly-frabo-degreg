@@ -1,12 +1,12 @@
 package algo3.tp2.vista;
 
-import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 
-public class JugadorVista extends Cuadrado {
+public class JugadorVista extends Imagen {
 
-	public JugadorVista(int ancho, int alto) {
-		super(ancho, alto);
+	public JugadorVista () {
+		this.setNombreArchivoImagen("C:\\Users\\Matias\\Desktop\\jugador.jpg");
 	}
 
 

@@ -11,4 +11,10 @@ public class Caza extends NaveAtacante
 		valor = 30;
 		this.formaVuelo = new Recto(1);
 	}
+
+	@Override
+	public void vivir() {
+		// TODO Auto-generated method stub
+		
+	}
 }

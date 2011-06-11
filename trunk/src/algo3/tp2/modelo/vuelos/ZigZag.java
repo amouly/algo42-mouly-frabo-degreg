@@ -1,6 +1,5 @@
 package algo3.tp2.modelo.vuelos;
 
-import algo3.tp2.modelo.Vuelo;
 import java.awt.Point;
 
 public class ZigZag implements Vuelo
