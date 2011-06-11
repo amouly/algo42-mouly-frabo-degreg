@@ -2,7 +2,7 @@ package algo3.tp2.eventos;
 
 import java.awt.event.KeyEvent;
 
-import algo3.tp2.modelo.moviles.naves.Jugador;
+import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 
 public class TeclaEscuchador implements KeyPressedObservador {

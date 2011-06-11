@@ -1,12 +1,18 @@
 package algo3.tp2.modelo.inmoviles.armas;
 
 import algo3.tp2.modelo.inmoviles.Arma;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
-public class Cohete extends Arma
+public class Cohete extends Arma implements ObjetoVivo
 {
 	public Cohete()
 	{
-		poder = 5;
 		cantidadBalas = 5;
+	}
+
+	@Override
+	public void vivir() {
+		// TODO Auto-generated method stub
+		
 	}
 }

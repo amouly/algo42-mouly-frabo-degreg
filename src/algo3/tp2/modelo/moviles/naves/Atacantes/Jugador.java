@@ -16,4 +16,10 @@ public class Jugador extends NaveAtacante
 	public void moverEnY(int deltaY) {
 		cuerpo.setLocation((int) cuerpo.getX(), (int) cuerpo.getY() + deltaY);
 	}
+
+	@Override
+	public void vivir() {
+		// TODO Auto-generated method stub
+		
+	}
 }
