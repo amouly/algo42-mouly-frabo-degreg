@@ -10,16 +10,18 @@ import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 import algo3.tp2.vista.JugadorVista;
+import algo3.tp2.vista.EscenarioVista;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 
-public class MotorJuego {
-
+public class MotorJuego
+{
 	private static List<Nave> navesEnemigas = new ArrayList<Nave>();
 	private static List<Proyectil> proyectilesEnemigos = new ArrayList<Proyectil>();
 	private static List<Proyectil> proyectilesJugador = new ArrayList<Proyectil>();
 	private static Jugador jugador = new Jugador();
+	private static Escenario escenario = new Escenario();
 	private static ControladorJuego controlador = new ControladorJuego(false);
 	
 	public static List<Nave> getNavesenemigas() {
@@ -35,39 +37,36 @@ public class MotorJuego {
 		return jugador;
 	}
 	
-	public void agregarProyectilEnemigo(Proyectil proyectil) {
+	public void agregarProyectilEnemigo(Proyectil proyectil){
 		proyectilesEnemigos.add(proyectil);
 		controlador.agregarObjetoVivo(proyectil);
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
+		/* Ventana que encapsula al Juego. */
 		VentanaJuego ventana = new VentanaJuego();
 		ventana.setVisible(true);
 		ventana.setResizable(false);
 		ventana.addKeyListener(new KeyPressedController(controlador));
 		
-		Cuadrado escenario = new Cuadrado(600, 600);
-		escenario.setColor(Color.BLACK);
-		escenario.setPosicionable(new Escenario());
+		/* Vista del Escenario. */
+		EscenarioVista escenarioVista = new EscenarioVista();
+		escenarioVista.setPosicionable(escenario);
 		
-		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
-		
+		/* Vista del Jugador. */
 		JugadorVista jugadorVista = new JugadorVista();
 		jugadorVista.setPosicionable(jugador);
 		
+		/* Controlador del Juego. */
 		controlador.agregarKeyPressObservador(new TeclaEscuchador(jugador));
 		controlador.agregarObjetoVivo(jugador);
+		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		
-		controlador.agregarDibujable(escenario);
+		controlador.agregarDibujable(escenarioVista);
 		controlador.agregarDibujable(jugadorVista);
 		controlador.setIntervaloSimulacion(20);
 		
 		controlador.comenzarJuegoAsyn();
-		
-		
-		
-
 	}
-	
-	
 } 
