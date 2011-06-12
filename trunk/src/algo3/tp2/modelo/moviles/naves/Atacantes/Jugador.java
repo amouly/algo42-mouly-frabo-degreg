@@ -7,7 +7,7 @@ import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 public class Jugador extends NaveAtacante {
 	
 	public Jugador() {
-		this.cuerpo = new Rectangle(20, 30, 20, 20);
+		this.cuerpo = new Rectangle(250, 450, 20, 20);
 	}
 
 	public void moverEnX(int deltaX) {

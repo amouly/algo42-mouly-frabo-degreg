@@ -19,9 +19,9 @@ public class VentanaJuego extends JFrame {
 	}
 	
 	private void initialize() {
-		this.setSize(389, 283);
+		this.setSize(600, 600);
 		this.setContentPane(getJContentPane());
-		this.setTitle("Ejemplo pelotas");
+		this.setTitle("Algo42");
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent e) {
@@ -42,10 +42,10 @@ public class VentanaJuego extends JFrame {
 	
 	public Panel getSuperficieDeDibujo() {
 		if (panel == null) {
-			panel = new Panel(200,200);
+			panel = new Panel(600,600);
 			panel.setLayout(new GridBagLayout());
 			//panel.setBounds(new Rectangle(10, 43, 267, 114));
-			panel.setBounds(new Rectangle(162, 38, 200, 200));
+			panel.setBounds(new Rectangle(0, 0, 600, 600));
 		}
 		return panel;
 	}
