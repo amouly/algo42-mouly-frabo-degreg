@@ -14,7 +14,7 @@ public class TeclaEscuchador implements KeyPressedObservador {
 	}
 	
 	@Override
-	public void keyPressed(KeyEvent event) {
+	public synchronized void keyPressed(KeyEvent event) {
 		switch (event.getKeyCode()) {
 		case KeyEvent.VK_DOWN:
 			jugador.moverEnY(5);
@@ -33,7 +33,7 @@ public class TeclaEscuchador implements KeyPressedObservador {
 			break;
 			
 		case KeyEvent.VK_SPACE:
-			//jugador.disparar();
+			jugador.disparar();
 			break;
 
 		default:

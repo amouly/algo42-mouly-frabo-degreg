@@ -42,12 +42,12 @@ public class MotorJuego
 		agregarVista(proyectil);
 	}
 	
-	public static void agregarProyectilJugador(Proyectil proyectil){
+	public synchronized static void agregarProyectilJugador(Proyectil proyectil){
 		proyectilesJugador.add(proyectil);
 		agregarVista(proyectil);
 	}
 	
-	private static void agregarVista(Movil movil) {
+	private synchronized static void agregarVista(Movil movil) {
 		Dibujable vista = movil.getVista();
 		vista.setPosicionable(movil);
 		

@@ -1,7 +1,7 @@
 package algo3.tp2.modelo.moviles.naves.atacantes;
 
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
-import algo3.tp2.modelo.vuelos.Recto;
+import algo3.tp2.modelo.vuelos.RectoVuelo;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class Avioneta extends NaveAtacante {
@@ -10,7 +10,7 @@ public class Avioneta extends NaveAtacante {
 	{
 		super();
 		this.valor = 20;
-		this.formaVuelo = new Recto(3);
+		this.formaVuelo = new RectoVuelo(3);
 	}
 
 	@Override
