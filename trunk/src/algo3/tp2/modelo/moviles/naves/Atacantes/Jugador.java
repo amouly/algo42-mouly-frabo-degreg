@@ -1,12 +1,13 @@
 package algo3.tp2.modelo.moviles.naves.atacantes;
 
+import java.awt.Rectangle;
+
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 
-public class Jugador extends NaveAtacante
-{
-	public Jugador()
-	{
-		super();
+public class Jugador extends NaveAtacante {
+	
+	public Jugador() {
+		this.cuerpo = new Rectangle(20, 30, 20, 20);
 	}
 
 	public void moverEnX(int deltaX) {
@@ -20,6 +21,6 @@ public class Jugador extends NaveAtacante
 	@Override
 	public void vivir() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

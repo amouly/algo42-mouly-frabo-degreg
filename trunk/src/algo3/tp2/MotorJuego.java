@@ -3,9 +3,11 @@ package algo3.tp2;
 import java.util.ArrayList;
 import java.util.List;
 
+import algo3.tp2.eventos.TeclaEscuchador;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
+import algo3.tp2.vista.JugadorVista;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class MotorJuego {
@@ -35,7 +37,18 @@ public class MotorJuego {
 	}
 	
 	public static void main(String[] args) {
+		VentanaJuego ventana = new VentanaJuego();
+		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
+
+		ventana.setVisible(true);
 		
+		JugadorVista jugadorVista = new JugadorVista();
+		jugadorVista.setPosicionable(jugador);
+		
+		controlador.agregarKeyPressObservador(new TeclaEscuchador(jugador));
+		controlador.agregarObjetoVivo(jugador);
+		controlador.agregarDibujable(jugadorVista);
+		controlador.comenzarJuego();
 
 	}
 	
