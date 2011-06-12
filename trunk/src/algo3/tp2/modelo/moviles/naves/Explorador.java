@@ -1,5 +1,7 @@
 package algo3.tp2.modelo.moviles.naves;
 
+import ar.uba.fi.algo3.titiritero.Dibujable;
+
 public class Explorador extends Nave
 {
 	public Explorador()
@@ -11,5 +13,10 @@ public class Explorador extends Nave
 	public void vivir() {
 		// TODO Auto-generated method stub
 		
-	}	
+	}
+
+	@Override
+	public Dibujable getVista() {
+		return vistasFactory.getExploradorVista();
+	}
 }

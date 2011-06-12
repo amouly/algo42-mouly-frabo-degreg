@@ -8,8 +8,13 @@ import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 
 public abstract class NaveAtacante extends Nave
 {
-	private LinkedList<Arma> armas;
-	private int armaActiva;
+	protected LinkedList<Arma> armas;
+	protected int armaActiva;
+	
+	protected NaveAtacante() {
+		armaActiva = 0;
+		armas = new LinkedList<Arma>();
+	}
 	
 	public void agregarArma(Arma unArma)
 	{

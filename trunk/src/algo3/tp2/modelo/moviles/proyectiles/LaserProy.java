@@ -1,5 +1,7 @@
 package algo3.tp2.modelo.moviles.proyectiles;
 
+import ar.uba.fi.algo3.titiritero.Dibujable;
+
 public class LaserProy extends Proyectil {
 
 	@Override
@@ -12,5 +14,9 @@ public class LaserProy extends Proyectil {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	@Override
+	public Dibujable getVista() {
+		return vistasFactory.getLaserVista();
+	}
 }
