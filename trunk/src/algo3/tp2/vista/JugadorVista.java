@@ -6,6 +6,6 @@ public class JugadorVista extends Imagen {
 
 	public JugadorVista()
 	{
-		this.setNombreArchivoImagen("/res/bitmaps/Jugador.jpg");
+		this.setNombreArchivoImagen("/res/bitmaps/Jugador.png");
 	}
 }
