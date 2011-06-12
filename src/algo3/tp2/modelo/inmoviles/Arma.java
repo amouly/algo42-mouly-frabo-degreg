@@ -14,7 +14,7 @@ public abstract class Arma extends Inmovil
 		{
 			cantidadBalas--;
 			
-			return proyectil.crearInstancia();
+			return proyectil.crearInstancia(posX, posY);
 		}
 		else
 		{
