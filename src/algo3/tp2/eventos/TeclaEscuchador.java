@@ -31,6 +31,10 @@ public class TeclaEscuchador implements KeyPressedObservador {
 		case KeyEvent.VK_RIGHT:
 			jugador.moverEnX(5);
 			break;
+			
+		case KeyEvent.VK_SPACE:
+			//jugador.disparar();
+			break;
 
 		default:
 			System.out.println("No apreto una tecla posta: " + event.getKeyCode());

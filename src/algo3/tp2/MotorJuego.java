@@ -1,18 +1,18 @@
 package algo3.tp2;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import algo3.tp2.eventos.TeclaEscuchador;
 import algo3.tp2.modelo.Escenario;
+import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
-import algo3.tp2.vista.JugadorVista;
 import algo3.tp2.vista.EscenarioVista;
+import algo3.tp2.vista.JugadorVista;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
-import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
+import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 
 public class MotorJuego
@@ -37,9 +37,22 @@ public class MotorJuego
 		return jugador;
 	}
 	
-	public void agregarProyectilEnemigo(Proyectil proyectil){
+	public static void agregarProyectilEnemigo(Proyectil proyectil){
 		proyectilesEnemigos.add(proyectil);
-		controlador.agregarObjetoVivo(proyectil);
+		agregarVista(proyectil);
+	}
+	
+	public static void agregarProyectilJugador(Proyectil proyectil){
+		proyectilesJugador.add(proyectil);
+		agregarVista(proyectil);
+	}
+	
+	private static void agregarVista(Movil movil) {
+		Dibujable vista = movil.getVista();
+		vista.setPosicionable(movil);
+		
+		controlador.agregarObjetoVivo(movil);
+		controlador.agregarDibujable(vista);
 	}
 	
 	public static void main(String[] args)
