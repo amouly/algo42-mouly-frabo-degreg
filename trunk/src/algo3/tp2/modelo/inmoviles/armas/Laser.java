@@ -8,6 +8,6 @@ public class Laser extends Arma
 	public Laser()
 	{
 		proyectil = new LaserProy();
-		cantidadBalas = 10000;
+		cantidadBalas = 1000;
 	}
 }

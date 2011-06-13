@@ -25,8 +25,8 @@ public class ZigZag implements Vuelo
 	{
 		if(ContadorMovimientos == Periodo)
 		{
-			this.Sentido *= -1;
-			this.ContadorMovimientos = 0;
+			Sentido *= -1;
+			ContadorMovimientos = 0;
 		}
 		
 		Variacion.setLocation(Amplitud * Sentido, -Amplitud);

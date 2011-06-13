@@ -5,12 +5,14 @@ import java.util.List;
 
 import algo3.tp2.eventos.TeclaEscuchador;
 import algo3.tp2.modelo.Escenario;
+import algo3.tp2.modelo.auxiliares.InfoJugador;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 import algo3.tp2.vista.EscenarioVista;
 import algo3.tp2.vista.JugadorVista;
+import algo3.tp2.vista.InfoJugadorVista;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
@@ -70,6 +72,13 @@ public class MotorJuego
 		/* Vista del Jugador. */
 		JugadorVista jugadorVista = new JugadorVista();
 		jugadorVista.setPosicionable(jugador);
+
+		/* Panel que contiene la información del Jugador. Recibe el Puntaje, Energia y Balas del mismo. */
+		InfoJugador infoJugador = new InfoJugador(jugador.getPuntaje(), jugador.getEnergia(), jugador.getCantidadBalas());
+		
+		/* Vista de los Datos del Jugador. */
+		InfoJugadorVista infoJugadorVista = new InfoJugadorVista(infoJugador);
+		infoJugadorVista.setPosicionable(infoJugador);
 		
 		/* Controlador del Juego. */
 		controlador.agregarKeyPressObservador(new TeclaEscuchador(jugador));
@@ -78,6 +87,8 @@ public class MotorJuego
 		
 		controlador.agregarDibujable(escenarioVista);
 		controlador.agregarDibujable(jugadorVista);
+		controlador.agregarDibujable(infoJugadorVista);
+		
 		controlador.setIntervaloSimulacion(20);
 		
 		controlador.comenzarJuegoAsyn();
