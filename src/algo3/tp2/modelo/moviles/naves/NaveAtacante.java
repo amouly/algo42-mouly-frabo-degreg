@@ -11,7 +11,9 @@ public abstract class NaveAtacante extends Nave
 	protected LinkedList<Arma> armas;
 	protected int armaActiva;
 	
-	protected NaveAtacante() {
+	protected NaveAtacante()
+	{
+		super();
 		armaActiva = 0;
 		armas = new LinkedList<Arma>();
 	}
