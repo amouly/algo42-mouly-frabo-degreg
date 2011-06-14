@@ -14,6 +14,8 @@ public abstract class Arma extends Inmovil
 		{
 			cantidadBalas--;
 			
+			System.out.println("Arma disparada (class Arma).");
+			
 			return proyectil.crearInstancia(posX, posY);
 		}
 		else

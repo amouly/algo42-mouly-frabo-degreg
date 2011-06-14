@@ -9,6 +9,8 @@ import algo3.tp2.modelo.auxiliares.InfoJugador;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
+import algo3.tp2.modelo.moviles.naves.atacantes.Avioneta;
+import algo3.tp2.modelo.moviles.naves.atacantes.Bombardero;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 import algo3.tp2.vista.EscenarioVista;
 import algo3.tp2.vista.JugadorVista;
@@ -29,27 +31,36 @@ public class MotorJuego
 	public static List<Nave> getNavesenemigas() {
 		return navesEnemigas;
 	}
-	public static List<Proyectil> getProyectilesenemigos() {
+	public static List<Proyectil> getProyectilesEnemigos() {
 		return proyectilesEnemigos;
 	}
-	public static List<Proyectil> getProyectilesjugador() {
+	public static List<Proyectil> getProyectilesJugador() {
 		return proyectilesJugador;
 	}
 	public static Jugador getJugador() {
 		return jugador;
 	}
 	
-	public static void agregarProyectilEnemigo(Proyectil proyectil){
+	public static void agregarNaveEnemiga(Nave unaNave)
+	{
+		navesEnemigas.add(unaNave);
+		agregarVista(unaNave);
+	}
+	
+	public static void agregarProyectilEnemigo(Proyectil proyectil)
+	{
 		proyectilesEnemigos.add(proyectil);
 		agregarVista(proyectil);
 	}
 	
-	public synchronized static void agregarProyectilJugador(Proyectil proyectil){
+	public static void agregarProyectilJugador(Proyectil proyectil)
+	{
 		proyectilesJugador.add(proyectil);
 		agregarVista(proyectil);
 	}
 	
-	private synchronized static void agregarVista(Movil movil) {
+	private synchronized static void agregarVista(Movil movil)
+	{
 		Dibujable vista = movil.getVista();
 		vista.setPosicionable(movil);
 		
@@ -85,9 +96,14 @@ public class MotorJuego
 		controlador.agregarObjetoVivo(jugador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		
+		/* Se agregan los Objetos Vivos del Juego. */
 		controlador.agregarDibujable(escenarioVista);
 		controlador.agregarDibujable(jugadorVista);
 		controlador.agregarDibujable(infoJugadorVista);
+		
+		/* Se agregan algunos Enemigos, esto luego será ejecutado por las misiones respectivas. */
+		agregarNaveEnemiga(new Avioneta()); /* Agrego una Avioneta. */
+		agregarNaveEnemiga(new Bombardero()); /* Agrego un Bombardero. */
 		
 		controlador.setIntervaloSimulacion(20);
 		

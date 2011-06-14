@@ -23,12 +23,18 @@ public abstract class NaveAtacante extends Nave
 		armas.add(unArma);
 	}
 	
-	public void disparar() {
-		try {
+	public void disparar()
+	{
+		try
+		{
 			DisparoEscuchador.manejarDisparoJugador(armas.get(armaActiva).dispararBala(getX(), getY()));
-		} catch (SinBalasException ex) {
+			
+			System.out.println("Arma disparada (class NaveAtacante).");
+		}
+		catch (SinBalasException ex)
+		{
 			//TODO: mostrar algo en la ventana del juego
-			System.out.println("El arma no tiene más balas");
+			System.out.println("El arma no tiene más balas.");
 		}
 	}
 }
