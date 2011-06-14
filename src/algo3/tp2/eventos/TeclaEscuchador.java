@@ -21,10 +21,12 @@ public class TeclaEscuchador implements KeyPressedObservador {
 		{
 			case KeyEvent.VK_DOWN:
 				jugador.moverEnY(5);
+				System.out.println("El Jugador se movió a la izquierda.");
 			break;
 			
 			case KeyEvent.VK_LEFT:
 				jugador.moverEnX(-5);
+				System.out.println("El Jugador se movió a la derecha.");
 			break;
 			
 			case KeyEvent.VK_UP:
