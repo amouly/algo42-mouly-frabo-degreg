@@ -10,13 +10,13 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class Bombardero extends NaveAtacante
 {
-	public Bombardero()
+	public Bombardero(int posInicialX, int posInicialY)
 	{
 		super();
 		valor = 30;
-		this.formaVuelo = new ZigZag(3, -1);
 		
-		this.cuerpo = new Rectangle(300, 30, 20, 20);
+		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
+		this.formaVuelo = new ZigZag(3, -1);
 	}
 
 	@Override

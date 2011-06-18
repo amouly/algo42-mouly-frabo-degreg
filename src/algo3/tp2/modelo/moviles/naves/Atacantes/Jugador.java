@@ -9,26 +9,28 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class Jugador extends NaveAtacante {
 	
-	public Jugador()
+	public Jugador(int posInicialX, int posInicialY)
 	{
 		super();
 		
-		this.cuerpo = new Rectangle(250, 450, 20, 20);
+		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
 		this.agregarArma(new Laser());
 	}
 
-	public void moverEnX(int deltaX) {
+	public void moverEnX(int deltaX)
+	{
 		cuerpo.setLocation((int) cuerpo.getX() + deltaX, (int) cuerpo.getY());
 	}
 
-	public void moverEnY(int deltaY) {
+	public void moverEnY(int deltaY)
+	{
 		cuerpo.setLocation((int) cuerpo.getX(), (int) cuerpo.getY() + deltaY);
 	}
 
 	@Override
-	public void vivir() {
+	public void vivir()
+	{
 		// TODO Auto-generated method stub
-
 	}
 	
 	public int getCantidadBalas()
@@ -39,8 +41,8 @@ public class Jugador extends NaveAtacante {
 	}
 
 	@Override
-	public Dibujable getVista() {
+	public Dibujable getVista()
+	{
 		return vistasFactory.getJugadorVista();
 	}
-	
 }
