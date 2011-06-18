@@ -4,18 +4,16 @@ import java.awt.Point;
 
 public class Recto implements Vuelo
 {
-	private int Amplitud; /* Determina la amplitud del movimiento. */
-	Point Variacion = new Point();
+	private final Point variacion;
 	
 	public Recto(int unaAmplitud)
 	{
-		Amplitud = unaAmplitud;
+		variacion = new Point(0, -unaAmplitud);
 	}
 	
+	@Override
 	public Point getVariacionPosicion()
 	{
-		Variacion.setLocation(0, Amplitud);
-		
-		return Variacion;
+		return variacion;
 	}
 }

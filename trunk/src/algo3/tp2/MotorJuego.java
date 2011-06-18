@@ -24,7 +24,7 @@ public class MotorJuego
 	private static List<Nave> navesEnemigas = new ArrayList<Nave>();
 	private static List<Proyectil> proyectilesEnemigos = new ArrayList<Proyectil>();
 	private static List<Proyectil> proyectilesJugador = new ArrayList<Proyectil>();
-	private static Jugador jugador = new Jugador();
+	private static Jugador jugador = new Jugador(250, 450);
 	private static Escenario escenario = new Escenario();
 	private static ControladorJuego controlador = new ControladorJuego(false);
 	
@@ -102,8 +102,8 @@ public class MotorJuego
 		controlador.agregarDibujable(infoJugadorVista);
 		
 		/* Se agregan algunos Enemigos, esto luego será ejecutado por las misiones respectivas. */
-		agregarNaveEnemiga(new Avioneta()); /* Agrego una Avioneta. */
-		agregarNaveEnemiga(new Bombardero()); /* Agrego un Bombardero. */
+		agregarNaveEnemiga(new Avioneta(34, 30)); /* Agrego una Avioneta. */
+		agregarNaveEnemiga(new Bombardero(300, 30)); /* Agrego un Bombardero. */
 		
 		controlador.setIntervaloSimulacion(20);
 		

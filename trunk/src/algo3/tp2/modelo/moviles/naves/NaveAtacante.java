@@ -33,7 +33,6 @@ public abstract class NaveAtacante extends Nave
 		}
 		catch (SinBalasException ex)
 		{
-			//TODO: mostrar algo en la ventana del juego
 			System.out.println("El arma no tiene más balas.");
 		}
 	}
