@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
-import algo3.tp2.modelo.vuelos.RectoVuelo;
+import algo3.tp2.modelo.vuelos.Recto;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class Caza extends NaveAtacante
@@ -15,7 +15,7 @@ public class Caza extends NaveAtacante
 		valor = 30;
 		
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
-		this.formaVuelo = new RectoVuelo(1);
+		this.formaVuelo = new Recto(1);
 	}
 
 	@Override
