@@ -3,25 +3,32 @@ package algo3.tp2.modelo.auxiliares;
 import java.awt.Rectangle;
 
 import algo3.tp2.modelo.ObjetoPosicionable;
+import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import ar.uba.fi.algo3.titiritero.vista.ObjetoDeTexto;
 
 /* Clase que se encarga de juntar y transformar la información del Jugador. */
-public class InfoJugador extends ObjetoPosicionable implements ObjetoDeTexto
+public class InfoJugador extends ObjetoPosicionable implements ObjetoDeTexto, ObjetoVivo
 {
 	private int puntaje;
 	private int energia;
 	private int cantidadBalas;
+	private Jugador jugador;
 
-	public InfoJugador(int unPuntaje, int unaEnergia, int cuantasBalas)
+	public InfoJugador(Jugador unJugador)
 	{
 		super();
 		
-		puntaje = unPuntaje;
-		energia = unaEnergia;
-		cantidadBalas = cuantasBalas;
-		
+		jugador = unJugador;
 		this.cuerpo = new Rectangle(5, 565, 30, 30);
+	}
+	
+	public void vivir()
+	{
+		puntaje = jugador.getPuntaje();
+		energia = jugador.getEnergia();
+		cantidadBalas = jugador.getCantidadBalas();
 	}
 	
 	public String getTexto()

@@ -19,7 +19,7 @@ public class VentanaJuego extends JFrame {
 	}
 	
 	private void initialize() {
-		this.setSize(600, 600);
+		this.setSize(800, 600);
 		this.setContentPane(getJContentPane());
 		this.setTitle("Algo42");
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -42,10 +42,10 @@ public class VentanaJuego extends JFrame {
 	
 	public Panel getSuperficieDeDibujo() {
 		if (panel == null) {
-			panel = new Panel(600,600);
+			panel = new Panel(800,600);
 			panel.setLayout(new GridBagLayout());
 			//panel.setBounds(new Rectangle(10, 43, 267, 114));
-			panel.setBounds(new Rectangle(0, 0, 600, 600));
+			panel.setBounds(new Rectangle(0, 0, 800, 600));
 		}
 		return panel;
 	}

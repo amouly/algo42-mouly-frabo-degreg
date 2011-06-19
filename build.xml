@@ -1,0 +1,46 @@
+<project name="algo42-mouly-frabo-degreg">
+	
+	<path id="classpath">
+		<fileset dir="lib">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="build/" />
+	</path>
+
+    <target name="compile">
+        <mkdir dir="build/classes" />
+        <javac srcdir="src" classpath="${classpath}" destdir="build/classes">
+        	<classpath refid="classpath" />
+       	</javac>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar" />
+        <unjar dest="build/classes" src="lib/titiritero.jar"/>
+		<copy todir="build/classes">
+			<fileset dir="src/">
+				<include name="**/*.png"/>
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+				<include name="**/*.jpeg"/>
+				<include name="**/*.mpeg"/>
+				<include name="**/*.wav"/>
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+        <jar destfile="build/jar/Algo42.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="algo3.tp2.MotorJuego" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/Algo42.jar" fork="true" />
+    </target>
+    
+    <target name="clean">
+        <delete dir="build" />
+    </target>
+    
+</project>

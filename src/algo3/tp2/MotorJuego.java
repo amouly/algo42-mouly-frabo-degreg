@@ -3,13 +3,12 @@ package algo3.tp2;
 import java.util.ArrayList;
 import java.util.List;
 
+import algo3.tp2.misiones.AdministradorMisiones;
 import algo3.tp2.eventos.TeclaEscuchador;
 import algo3.tp2.modelo.Escenario;
 import algo3.tp2.modelo.auxiliares.InfoJugador;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
-import algo3.tp2.modelo.moviles.naves.atacantes.Avioneta;
-import algo3.tp2.modelo.moviles.naves.atacantes.Bombardero;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 import algo3.tp2.vista.EscenarioVista;
@@ -24,7 +23,8 @@ public class MotorJuego
 	private static List<Nave> navesEnemigas = new ArrayList<Nave>();
 	private static List<Proyectil> proyectilesEnemigos = new ArrayList<Proyectil>();
 	private static List<Proyectil> proyectilesJugador = new ArrayList<Proyectil>();
-	private static Jugador jugador = new Jugador(250, 450);
+	private static Jugador jugador = new Jugador(360, 450);
+	private static AdministradorMisiones administradorMisiones = new AdministradorMisiones();
 	private static Escenario escenario = new Escenario();
 	private static ControladorJuego controlador = new ControladorJuego(false);
 	
@@ -37,7 +37,8 @@ public class MotorJuego
 	public static List<Proyectil> getProyectilesJugador() {
 		return proyectilesJugador;
 	}
-	public static Jugador getJugador() {
+	public static Jugador getJugador()
+	{
 		return jugador;
 	}
 	
@@ -84,8 +85,8 @@ public class MotorJuego
 		JugadorVista jugadorVista = new JugadorVista();
 		jugadorVista.setPosicionable(jugador);
 
-		/* Panel que contiene la información del Jugador. Recibe el Puntaje, Energia y Balas del mismo. */
-		InfoJugador infoJugador = new InfoJugador(jugador.getPuntaje(), jugador.getEnergia(), jugador.getCantidadBalas());
+		/* Panel que contiene la información del Jugador. */
+		InfoJugador infoJugador = new InfoJugador(jugador);
 		
 		/* Vista de los Datos del Jugador. */
 		InfoJugadorVista infoJugadorVista = new InfoJugadorVista(infoJugador);
@@ -94,16 +95,18 @@ public class MotorJuego
 		/* Controlador del Juego. */
 		controlador.agregarKeyPressObservador(new TeclaEscuchador(jugador));
 		controlador.agregarObjetoVivo(jugador);
+		controlador.agregarObjetoVivo(infoJugador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
-		
+
 		/* Se agregan los Objetos Vivos del Juego. */
 		controlador.agregarDibujable(escenarioVista);
 		controlador.agregarDibujable(jugadorVista);
-		controlador.agregarDibujable(infoJugadorVista);
 		
-		/* Se agregan algunos Enemigos, esto luego será ejecutado por las misiones respectivas. */
-		agregarNaveEnemiga(new Avioneta(34, 30)); /* Agrego una Avioneta. */
-		agregarNaveEnemiga(new Bombardero(300, 30)); /* Agrego un Bombardero. */
+		/* Se crean las Misiones. */
+		administradorMisiones.comenzarMisiones();
+		
+		/* Se agrega el panel que contiene la informacion del Jugador. */
+		controlador.agregarDibujable(infoJugadorVista);
 		
 		controlador.setIntervaloSimulacion(20);
 		
