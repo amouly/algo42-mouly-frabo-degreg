@@ -16,7 +16,7 @@ public class Bombardero extends NaveAtacante
 		valor = 30;
 		
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
-		this.formaVuelo = new ZigZag(3, -1);
+		this.formaVuelo = new ZigZag(1, 1);
 	}
 
 	@Override
