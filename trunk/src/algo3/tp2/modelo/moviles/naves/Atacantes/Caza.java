@@ -12,13 +12,14 @@ public class Caza extends NaveAtacante
 	{
 		super();
 		valor = 30;
-		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
 		this.formaVuelo = new Recto(1);
+		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getCazaVista();
 	}
 
 	@Override
-	public Dibujable getVista() {
+	public Dibujable getVista()
+	{
 		return vista;
 	}
 }

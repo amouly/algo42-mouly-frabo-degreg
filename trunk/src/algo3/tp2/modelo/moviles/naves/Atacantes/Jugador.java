@@ -12,7 +12,7 @@ public class Jugador extends NaveAtacante {
 	public Jugador(int posInicialX, int posInicialY)
 	{
 		super();
-		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
+		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.agregarArma(new Laser());
 		this.vista = vistasFactory.getJugadorVista();
 	}
@@ -30,7 +30,7 @@ public class Jugador extends NaveAtacante {
 	@Override
 	public void vivir()
 	{
-		// TODO Auto-generated method stub
+
 	}
 	
 	public int getCantidadBalas()

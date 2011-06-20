@@ -12,8 +12,8 @@ public class Bombardero extends NaveAtacante
 	{
 		super();
 		this.valor = 30;
-		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
 		this.formaVuelo = new ZigZag(1, 1);
+		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getBombarderoVista();
 	}
 
