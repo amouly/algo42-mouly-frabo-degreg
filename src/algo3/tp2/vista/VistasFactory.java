@@ -6,6 +6,8 @@ public interface VistasFactory {
 	/*Vistas de proyectiles*/
 	public Dibujable getLaserVista();
 	
+	public Dibujable getTorpedoVista();
+	
 	/*Vistas de naves*/
 	public Dibujable getJugadorVista();
 	

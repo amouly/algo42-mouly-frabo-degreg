@@ -7,6 +7,7 @@ public abstract class Arma extends Inmovil
 {
 	protected int cantidadBalas;
 	protected Proyectil proyectil;
+	protected String nombre;
 	
 	public Proyectil dispararBala(int posX, int posY) throws SinBalasException
 	{
@@ -16,7 +17,7 @@ public abstract class Arma extends Inmovil
 			
 			System.out.println("Arma disparada (class Arma).");
 			
-			return proyectil.crearInstancia(posX, posY);
+			return proyectil.crearInstancia(posX+20, posY);
 		}
 		else
 		{
@@ -24,12 +25,18 @@ public abstract class Arma extends Inmovil
 		}
 	}
 	
+	public String getNombre()
+	{
+		return nombre;
+	}
+	
 	public int getCantidadBalas()
 	{
 		return cantidadBalas;
 	}
 	
-	public void setProyectil(Proyectil proyectil) {
-		this.proyectil = proyectil;
+	public void setProyectil(Proyectil unProyectil)
+	{
+		this.proyectil = unProyectil;
 	}
 }

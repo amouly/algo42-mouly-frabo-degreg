@@ -8,12 +8,14 @@ public abstract class Proyectil extends Movil
 {
 	private int danio;
 
-	public int getDanio() {
+	public int getDanio()
+	{
 		return danio;
 	}
 	
 	@Override
-	public void vivir() {
+	public void vivir()
+	{
 		Point delta = formaVuelo.getVariacionPosicion();
 		this.cuerpo.translate(new Double(delta.getX()).intValue(), new Double(delta.getY()).intValue());
 	}
@@ -21,5 +23,3 @@ public abstract class Proyectil extends Movil
 	public abstract Proyectil crearInstancia(int posX, int posY);
 
 }
-
-

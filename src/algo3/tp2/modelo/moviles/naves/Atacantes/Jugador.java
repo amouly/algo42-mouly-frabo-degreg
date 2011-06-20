@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 import algo3.tp2.modelo.inmoviles.Arma;
 import algo3.tp2.modelo.inmoviles.armas.Laser;
+import algo3.tp2.modelo.inmoviles.armas.Torpedo;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class Jugador extends NaveAtacante {
@@ -14,7 +15,7 @@ public class Jugador extends NaveAtacante {
 		super();
 		
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
-		this.agregarArma(new Laser());
+		this.agregarArma(new Torpedo());
 	}
 
 	public void moverEnX(int deltaX)
