@@ -20,9 +20,10 @@ public class EscuchadorEventos {
 			}
 			private final Nave nave;
 			@Override
-			public void run() {
+			public void run()
+			{
+				MotorJuego.getJugador().aumentarPuntaje(nave.getValor());
 				MotorJuego.quitarNaveEnemiga(nave);
-				
 			}
 		}
 		new Thread(new unThread(nave)).start();
