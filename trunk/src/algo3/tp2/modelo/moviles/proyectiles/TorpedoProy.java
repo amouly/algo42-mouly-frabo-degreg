@@ -16,6 +16,7 @@ public class TorpedoProy extends Proyectil
 	{
 		this.cuerpo = new Rectangle(posX, posY, 5, 10);
 		this.formaVuelo = new Recto(2);
+		this.vista = vistasFactory.getTorpedoVista();
 	}
 		
 	@Override
@@ -27,6 +28,6 @@ public class TorpedoProy extends Proyectil
 	@Override
 	public Dibujable getVista()
 	{
-		return vistasFactory.getTorpedoVista();
+		return vista;
 	}
 }

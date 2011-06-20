@@ -1,6 +1,5 @@
 package algo3.tp2.modelo.moviles.naves.atacantes;
 
-import java.awt.Point;
 import java.awt.Rectangle;
 
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
@@ -13,19 +12,13 @@ public class Caza extends NaveAtacante
 	{
 		super();
 		valor = 30;
-		
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 20, 20);
 		this.formaVuelo = new Recto(1);
-	}
-
-	@Override
-	public void vivir() {
-		// TODO Auto-generated method stub
-		
+		this.vista = vistasFactory.getCazaVista();
 	}
 
 	@Override
 	public Dibujable getVista() {
-		return vistasFactory.getCazaVista();
+		return vista;
 	}
 }
