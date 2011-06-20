@@ -8,6 +8,7 @@ public class Cohete extends Arma implements ObjetoVivo
 	public Cohete()
 	{
 		cantidadBalas = 5;
+		nombre = "Cohete";
 	}
 
 	@Override

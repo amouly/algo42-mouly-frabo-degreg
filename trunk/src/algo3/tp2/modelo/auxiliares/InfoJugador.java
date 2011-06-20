@@ -14,6 +14,7 @@ public class InfoJugador extends ObjetoPosicionable implements ObjetoDeTexto, Ob
 	private int puntaje;
 	private int energia;
 	private int cantidadBalas;
+	private String armaActiva;
 	private Jugador jugador;
 
 	public InfoJugador(Jugador unJugador)
@@ -29,10 +30,11 @@ public class InfoJugador extends ObjetoPosicionable implements ObjetoDeTexto, Ob
 		puntaje = jugador.getPuntaje();
 		energia = jugador.getEnergia();
 		cantidadBalas = jugador.getCantidadBalas();
+		armaActiva = jugador.getArmaActiva().getNombre();
 	}
 	
 	public String getTexto()
 	{
-    	return "Puntaje: "+Integer.toString(puntaje)+" | Energia: "+Integer.toString(energia)+" | Balas: "+Integer.toString(cantidadBalas);
+    	return "Puntaje: "+Integer.toString(puntaje)+" | Energia: "+Integer.toString(energia)+" | Arma: "+armaActiva+" | Balas: "+Integer.toString(cantidadBalas);
 	}
 }

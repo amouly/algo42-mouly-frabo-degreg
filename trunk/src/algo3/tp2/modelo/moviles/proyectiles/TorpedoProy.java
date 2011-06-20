@@ -5,28 +5,28 @@ import java.awt.Rectangle;
 import algo3.tp2.modelo.vuelos.Recto;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
-public class LaserProy extends Proyectil
+public class TorpedoProy extends Proyectil
 {
-	public LaserProy()
+	public TorpedoProy()
 	{
 		super();
 	}
 
-	private LaserProy(int posX, int posY)
+	private TorpedoProy(int posX, int posY)
 	{
 		this.cuerpo = new Rectangle(posX, posY, 5, 10);
-		this.formaVuelo = new Recto(5);
+		this.formaVuelo = new Recto(2);
 	}
 		
 	@Override
 	public Proyectil crearInstancia(int posX, int posY)
 	{
-		return new LaserProy(posX, posY);
+		return new TorpedoProy(posX, posY);
 	}
 
 	@Override
 	public Dibujable getVista()
 	{
-		return vistasFactory.getLaserVista();
+		return vistasFactory.getTorpedoVista();
 	}
 }

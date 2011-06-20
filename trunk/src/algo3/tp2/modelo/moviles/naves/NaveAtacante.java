@@ -23,6 +23,11 @@ public abstract class NaveAtacante extends Nave
 		armas.add(unArma);
 	}
 	
+	public Arma getArmaActiva()
+	{
+		return armas.get(armaActiva);
+	}
+	
 	public void disparar()
 	{
 		try

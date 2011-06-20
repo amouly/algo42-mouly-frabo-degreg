@@ -6,8 +6,15 @@ public class VistasFactoryImpl implements VistasFactory
 {
 	/* Vista de Proyectiles. */
 	@Override
-	public Dibujable getLaserVista() {
+	public Dibujable getLaserVista()
+	{
 		return new LaserVista();
+	}
+	
+	@Override
+	public Dibujable getTorpedoVista()
+	{
+		return new TorpedoVista();
 	}
 
 	/* Vistas de Naves. */

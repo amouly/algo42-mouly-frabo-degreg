@@ -9,5 +9,6 @@ public class Laser extends Arma
 	{
 		proyectil = new LaserProy();
 		cantidadBalas = 1000;
+		nombre = "Laser";
 	}
 }
