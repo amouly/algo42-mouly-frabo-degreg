@@ -16,4 +16,8 @@ public class ObjetoPosicionable implements Posicionable {
 	public int getY() {
 		return new Double(cuerpo.getY()).intValue();
 	}
+	
+	public Rectangle getCuerpo() {
+		return cuerpo;
+	}
 }

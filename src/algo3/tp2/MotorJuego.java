@@ -3,8 +3,8 @@ package algo3.tp2;
 import java.util.ArrayList;
 import java.util.List;
 
-import algo3.tp2.misiones.AdministradorMisiones;
 import algo3.tp2.eventos.TeclaEscuchador;
+import algo3.tp2.misiones.AdministradorMisiones;
 import algo3.tp2.modelo.Escenario;
 import algo3.tp2.modelo.auxiliares.InfoJugador;
 import algo3.tp2.modelo.moviles.Movil;
@@ -18,80 +18,93 @@ import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 
-public class MotorJuego
-{
+public class MotorJuego {
 	private static List<Nave> navesEnemigas = new ArrayList<Nave>();
 	private static List<Proyectil> proyectilesEnemigos = new ArrayList<Proyectil>();
 	private static List<Proyectil> proyectilesJugador = new ArrayList<Proyectil>();
 	private static Jugador jugador = new Jugador(360, 450);
-	private static AdministradorMisiones administradorMisiones = new AdministradorMisiones();
 	private static Escenario escenario = new Escenario();
 	private static ControladorJuego controlador = new ControladorJuego(false);
-	
+
 	public static List<Nave> getNavesenemigas() {
 		return navesEnemigas;
 	}
+
 	public static List<Proyectil> getProyectilesEnemigos() {
 		return proyectilesEnemigos;
 	}
+
 	public static List<Proyectil> getProyectilesJugador() {
 		return proyectilesJugador;
 	}
-	public static Jugador getJugador()
-	{
+
+	public static Jugador getJugador() {
 		return jugador;
 	}
-	
-	public static void agregarNaveEnemiga(Nave unaNave)
-	{
+
+	public static void agregarNaveEnemiga(Nave unaNave) {
 		navesEnemigas.add(unaNave);
 		agregarVista(unaNave);
 	}
 	
-	public static void agregarProyectilEnemigo(Proyectil proyectil)
-	{
+	public static synchronized void quitarNaveEnemiga(Nave unaNave) {
+		navesEnemigas.remove(unaNave);
+		quitarVista(unaNave);
+	}
+
+	public static void agregarProyectilEnemigo(Proyectil proyectil) {
 		proyectilesEnemigos.add(proyectil);
 		agregarVista(proyectil);
 	}
-	
-	public static void agregarProyectilJugador(Proyectil proyectil)
-	{
+
+	public static void agregarProyectilJugador(Proyectil proyectil) {
 		proyectilesJugador.add(proyectil);
 		agregarVista(proyectil);
 	}
 	
-	private synchronized static void agregarVista(Movil movil)
-	{
+	public static synchronized void quitarProyectil(Proyectil proyectil) {
+		proyectilesJugador.remove(proyectil);
+		proyectilesEnemigos.remove(proyectil);
+		
+		quitarVista(proyectil);
+	}
+
+	private static void agregarVista(Movil movil) {
 		Dibujable vista = movil.getVista();
 		vista.setPosicionable(movil);
-		
+
 		controlador.agregarObjetoVivo(movil);
 		controlador.agregarDibujable(vista);
 	}
 	
-	public static void main(String[] args)
-	{
+	private static void quitarVista(Movil movil) {
+		
+		controlador.removerDibujable(movil.getVista());
+		controlador.removerObjetoVivo(movil);
+	}
+
+	public static void main(String[] args) {
 		/* Ventana que encapsula al Juego. */
 		VentanaJuego ventana = new VentanaJuego();
 		ventana.setVisible(true);
 		ventana.setResizable(false);
 		ventana.addKeyListener(new KeyPressedController(controlador));
-		
+
 		/* Vista del Escenario. */
 		EscenarioVista escenarioVista = new EscenarioVista();
 		escenarioVista.setPosicionable(escenario);
-		
+
 		/* Vista del Jugador. */
 		JugadorVista jugadorVista = new JugadorVista();
 		jugadorVista.setPosicionable(jugador);
 
 		/* Panel que contiene la información del Jugador. */
 		InfoJugador infoJugador = new InfoJugador(jugador);
-		
+
 		/* Vista de los Datos del Jugador. */
 		InfoJugadorVista infoJugadorVista = new InfoJugadorVista(infoJugador);
 		infoJugadorVista.setPosicionable(infoJugador);
-		
+
 		/* Controlador del Juego. */
 		controlador.agregarKeyPressObservador(new TeclaEscuchador(jugador));
 		controlador.agregarObjetoVivo(jugador);
@@ -101,15 +114,15 @@ public class MotorJuego
 		/* Se agregan los Objetos Vivos del Juego. */
 		controlador.agregarDibujable(escenarioVista);
 		controlador.agregarDibujable(jugadorVista);
-		
+
 		/* Se crean las Misiones. */
-		administradorMisiones.comenzarMisiones();
-		
+		AdministradorMisiones.comenzarMisiones();
+
 		/* Se agrega el panel que contiene la informacion del Jugador. */
 		controlador.agregarDibujable(infoJugadorVista);
-		
+
 		controlador.setIntervaloSimulacion(20);
-		
+
 		controlador.comenzarJuegoAsyn();
 	}
-} 
+}
