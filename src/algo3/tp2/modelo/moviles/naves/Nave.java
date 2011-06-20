@@ -2,6 +2,7 @@ package algo3.tp2.modelo.moviles.naves;
 
 import java.awt.Point;
 import java.util.Iterator;
+import java.util.List;
 
 import algo3.tp2.MotorJuego;
 import algo3.tp2.eventos.EscuchadorEventos;
@@ -27,11 +28,14 @@ public abstract class Nave extends Movil
 		cuerpo.setLocation((int) cuerpo.getX() - (int) variacionPos.getX(), (int) cuerpo.getY() - (int) variacionPos.getY());
 		
 		//Chequea colisión con los proyectiles del jugador
-		Iterator<Proyectil> it = MotorJuego.getProyectilesJugador().iterator();
-		Proyectil proyectil;
-		while (it.hasNext() && isAlive()) {
-			proyectil = it.next();
-			colisionar(proyectil);
+		List<Proyectil> proyectiles = MotorJuego.getProyectilesJugador();
+		synchronized (proyectiles) {
+			Iterator<Proyectil> it = proyectiles.iterator();
+			Proyectil proyectil;
+			while (it.hasNext() && isAlive()) {
+				proyectil = it.next();
+				colisionar(proyectil);
+			}
 		}
 		
 		//Chequea colisión con la nave del jugador

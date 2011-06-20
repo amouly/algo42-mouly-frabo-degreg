@@ -47,7 +47,7 @@ public class MotorJuego {
 		agregarVista(unaNave);
 	}
 	
-	public static synchronized void quitarNaveEnemiga(Nave unaNave) {
+	public static void quitarNaveEnemiga(Nave unaNave) {
 		navesEnemigas.remove(unaNave);
 		quitarVista(unaNave);
 	}
@@ -58,12 +58,16 @@ public class MotorJuego {
 	}
 
 	public static void agregarProyectilJugador(Proyectil proyectil) {
-		proyectilesJugador.add(proyectil);
+		synchronized (proyectilesJugador) {
+			proyectilesJugador.add(proyectil);
+		}
 		agregarVista(proyectil);
 	}
 	
-	public static synchronized void quitarProyectil(Proyectil proyectil) {
-		proyectilesJugador.remove(proyectil);
+	public static void quitarProyectil(Proyectil proyectil) {
+		synchronized (proyectilesJugador) {
+			proyectilesJugador.remove(proyectil);
+		}
 		proyectilesEnemigos.remove(proyectil);
 		
 		quitarVista(proyectil);
