@@ -2,8 +2,8 @@ package algo3.tp2.modelo.moviles.naves.atacantes;
 
 import java.awt.Rectangle;
 
-import algo3.tp2.modelo.inmoviles.Arma;
-import algo3.tp2.modelo.inmoviles.armas.Laser;
+import algo3.tp2.modelo.auxiliares.Arma;
+import algo3.tp2.modelo.auxiliares.armas.Laser;
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 

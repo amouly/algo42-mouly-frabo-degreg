@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import algo3.tp2.eventos.EscuchadorEventos;
 import algo3.tp2.modelo.excepciones.SinBalasException;
-import algo3.tp2.modelo.inmoviles.Arma;
+import algo3.tp2.modelo.auxiliares.Arma;
 
 public abstract class NaveAtacante extends Nave
 {
