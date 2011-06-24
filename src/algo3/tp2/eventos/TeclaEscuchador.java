@@ -39,11 +39,17 @@ public class TeclaEscuchador implements KeyPressedObservador {
 			
 			case KeyEvent.VK_SPACE:
 				jugador.disparar();
+				System.out.println("El Jugador disparó.");
 			break;
 
 			default:
 				System.out.println("No apreto una tecla posta: " + event.getKeyCode());
 			break;
 		}
+	}
+	
+	public void keyReleased(KeyEvent event)
+	{
+		System.out.println("Released: " + event.getKeyCode());
 	}
 }

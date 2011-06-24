@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import algo3.tp2.modelo.auxiliares.Arma;
 import algo3.tp2.modelo.auxiliares.armas.Laser;
+import algo3.tp2.modelo.auxiliares.armas.Torpedo;
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
@@ -13,7 +14,8 @@ public class Jugador extends NaveAtacante {
 	{
 		super();
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
-		this.agregarArma(new Laser());
+
+		this.agregarArma(new Torpedo());
 		this.vista = vistasFactory.getJugadorVista();
 	}
 

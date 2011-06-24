@@ -7,13 +7,13 @@ public class CajaEnergia extends ObjetoPosicionable
 {
 	private int cantidad;
 	
-	public void setCantidad(int unValor)
-	{
-		this.cantidad = unValor;
-	}
-	
 	public int getCantidad()
 	{
 		return cantidad;
+	}
+	
+	public void setCantidad(int unValor)
+	{
+		this.cantidad = unValor;
 	}
 }

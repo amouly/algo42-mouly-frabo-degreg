@@ -87,7 +87,8 @@ public class MotorJuego {
 		controlador.removerObjetoVivo(movil);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		/* Ventana que encapsula al Juego. */
 		VentanaJuego ventana = new VentanaJuego();
 		ventana.setVisible(true);
@@ -127,6 +128,6 @@ public class MotorJuego {
 
 		controlador.setIntervaloSimulacion(20);
 
-		controlador.comenzarJuegoAsyn();
+		controlador.comenzarJuego();
 	}
 }

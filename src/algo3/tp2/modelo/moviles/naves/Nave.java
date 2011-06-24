@@ -23,11 +23,11 @@ public abstract class Nave extends Movil
 	@Override
 	public void vivir()
 	{
-		//Cambia su posicion de acuerdo al tipo de vuelo
+		/* Cambia su posicion de acuerdo al tipo de vuelo. */
 		Point variacionPos = formaVuelo.getVariacionPosicion();
 		cuerpo.setLocation((int) cuerpo.getX() - (int) variacionPos.getX(), (int) cuerpo.getY() - (int) variacionPos.getY());
 		
-		//Chequea colisión con los proyectiles del jugador
+		/* Chequea colisión con los proyectiles del jugador. */
 		List<Proyectil> proyectiles = MotorJuego.getProyectilesJugador();
 		synchronized (proyectiles) {
 			Iterator<Proyectil> it = proyectiles.iterator();
@@ -38,11 +38,14 @@ public abstract class Nave extends Movil
 			}
 		}
 		
-		//Chequea colisión con la nave del jugador
+		/* Chequea colisión con la nave del jugador. */
 		if (isAlive()) {
 			colisionar(MotorJuego.getJugador());
-		} else
+		}
+		else
+		{
 			morir();
+		}
 	}
 	
 	public void morir() {
