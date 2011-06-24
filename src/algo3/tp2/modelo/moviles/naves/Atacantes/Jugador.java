@@ -14,8 +14,7 @@ public class Jugador extends NaveAtacante {
 	{
 		super();
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
-
-		this.agregarArma(new Torpedo());
+		this.agregarArma(new Laser());
 		this.vista = vistasFactory.getJugadorVista();
 	}
 

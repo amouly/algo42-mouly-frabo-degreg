@@ -4,6 +4,17 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public class VistasFactoryImpl implements VistasFactory
 {
+	/* Vistas de Inmoviles. */
+	public Dibujable getCajaArmaVista()
+	{
+		return new CajaArmaVista();
+	}
+	
+	public Dibujable getCajaEnergiaVista()
+	{
+		return new CajaEnergiaVista();
+	}
+
 	/* Vista de Proyectiles. */
 	@Override
 	public Dibujable getLaserVista()
