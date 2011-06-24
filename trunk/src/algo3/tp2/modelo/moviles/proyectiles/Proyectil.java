@@ -10,7 +10,8 @@ public abstract class Proyectil extends Movil
 {
 	protected Energia danio;
 
-	public Energia getDanio() {
+	public Energia getDanio()
+	{
 		return danio;
 	}
 	
