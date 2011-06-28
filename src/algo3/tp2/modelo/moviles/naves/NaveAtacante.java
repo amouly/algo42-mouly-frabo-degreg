@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import algo3.tp2.eventos.EscuchadorEventos;
 import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.auxiliares.Arma;
+import algo3.tp2.modelo.inmoviles.CajaArma;
 
 public abstract class NaveAtacante extends Nave
 {
@@ -35,11 +36,15 @@ public abstract class NaveAtacante extends Nave
 		//TODO: hacer que dispare cada x tiempo.
 	}
 	
-	public void morir()
+	public void soltarCajaArma()
 	{
-		EscuchadorEventos.manejarMuerteNaveEnemiga(this);
+		/* Se crea una Caja con el Arma Activa. */
+		CajaArma unaCajaArma = new CajaArma(this.getX(), this.getY());
+		unaCajaArma.setContenido(this.getArmaActiva());
+		
+		EscuchadorEventos.manejarCajaSoltada(unaCajaArma);
 	}
-	
+
 	public void disparar()
 	{
 		try

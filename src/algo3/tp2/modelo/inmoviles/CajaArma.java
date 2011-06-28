@@ -2,6 +2,8 @@ package algo3.tp2.modelo.inmoviles;
 
 import java.awt.Rectangle;
 
+import algo3.tp2.MotorJuego;
+import algo3.tp2.eventos.EscuchadorEventos;
 import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.auxiliares.Arma;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -23,7 +25,11 @@ public class CajaArma extends Caja
 	
 	public void vivir()
 	{
-
+		if(MotorJuego.getJugador().getCuerpo().intersects(this.getCuerpo()))
+		{
+			EscuchadorEventos.manejarCajaTomada(this);
+			System.out.println("CAJA DE ARMA TOMADA");
+		}
 	}
 	
 	public void setContenido(Arma unArma)

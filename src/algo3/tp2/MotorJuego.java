@@ -8,6 +8,7 @@ import algo3.tp2.misiones.AdministradorMisiones;
 import algo3.tp2.modelo.Escenario;
 import algo3.tp2.modelo.auxiliares.InfoJugador;
 import algo3.tp2.modelo.inmoviles.Caja;
+import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
@@ -47,7 +48,13 @@ public class MotorJuego {
 	public static void agregarCajaEscenario(Caja unaCaja)
 	{
 		cajasEscenario.add(unaCaja);
-		agregarVistaInmovil(unaCaja);
+		agregarVista(unaCaja);
+	}
+	
+	public static void quitarCajaEscenario(Caja unaCaja)
+	{
+		cajasEscenario.remove(unaCaja);
+		quitarVista(unaCaja);
 	}
 
 	public static void agregarNaveEnemiga(Nave unaNave)
@@ -82,28 +89,19 @@ public class MotorJuego {
 		quitarVista(proyectil);
 	}
 
-	private static void agregarVista(Movil movil) {
-		Dibujable vista = movil.getVista();
-		vista.setPosicionable(movil);
-
-		controlador.agregarObjetoVivo(movil);
-		controlador.agregarDibujable(vista);
-	}
-	
-	/* AGREGADO AUXILIAR */
-	public static void agregarVistaInmovil(Caja unInmovil)
+	private static void agregarVista(ObjetoPosicionable unPosicionable)
 	{
-		Dibujable vista = unInmovil.getVista();
-		vista.setPosicionable(unInmovil);
+		Dibujable vista = unPosicionable.getVista();
+		vista.setPosicionable(unPosicionable);
 
-		controlador.agregarObjetoVivo(unInmovil);
+		controlador.agregarObjetoVivo(unPosicionable);
 		controlador.agregarDibujable(vista);
 	}
 	
-	private static void quitarVista(Movil movil) {
+	private static void quitarVista(ObjetoPosicionable unPosicionable) {
 		
-		controlador.removerDibujable(movil.getVista());
-		controlador.removerObjetoVivo(movil);
+		controlador.removerDibujable(unPosicionable.getVista());
+		controlador.removerObjetoVivo(unPosicionable);
 	}
 
 	public static void main(String[] args)
