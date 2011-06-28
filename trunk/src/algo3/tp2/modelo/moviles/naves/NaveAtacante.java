@@ -11,6 +11,7 @@ public abstract class NaveAtacante extends Nave
 {
 	protected LinkedList<Arma> armas;
 	protected int armaActiva;
+	protected int sentidoDisparo = 1;
 	
 	protected NaveAtacante()
 	{
@@ -33,7 +34,22 @@ public abstract class NaveAtacante extends Nave
 	public void vivir()
 	{
 		super.vivir();
-		//TODO: hacer que dispare cada x tiempo.
+		
+		//Hacer que la Nave dispare.
+	}
+	
+	public void disparar()
+	{
+		try
+		{
+			EscuchadorEventos.manejarDisparoEnemigo(armas.get(armaActiva).dispararBala(getX(), getY(), sentidoDisparo));
+			
+			System.out.println("Arma disparada por Enemigo (class NaveAtacante).");
+		}
+		catch (SinBalasException ex)
+		{
+			System.out.println("El arma del Enemigo no tiene más balas.");
+		}
 	}
 	
 	public void soltarCajaArma()
@@ -43,19 +59,5 @@ public abstract class NaveAtacante extends Nave
 		unaCajaArma.setContenido(this.getArmaActiva());
 		
 		EscuchadorEventos.manejarCajaSoltada(unaCajaArma);
-	}
-
-	public void disparar()
-	{
-		try
-		{
-			EscuchadorEventos.manejarDisparoJugador(armas.get(armaActiva).dispararBala(getX(), getY()));
-			
-			System.out.println("Arma disparada (class NaveAtacante).");
-		}
-		catch (SinBalasException ex)
-		{
-			System.out.println("El arma no tiene más balas.");
-		}
 	}
 }

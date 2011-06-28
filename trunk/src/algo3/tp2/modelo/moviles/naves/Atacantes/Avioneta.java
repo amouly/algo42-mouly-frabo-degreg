@@ -13,7 +13,7 @@ public class Avioneta extends NaveAtacante
 	{
 		super();
 		this.valor = 20;
-		this.formaVuelo = new Recto(2);
+		this.formaVuelo = new Recto(2, -1);
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getAvionetaVista();
 		

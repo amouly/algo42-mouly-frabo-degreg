@@ -20,16 +20,19 @@ import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 
-public class MotorJuego {
+public class MotorJuego
+{
+	private static final int anchoJuego = 800;
+	private static final int altoJuego = 600;
 	private static List<Nave> navesEnemigas = new ArrayList<Nave>();
 	private static List<Proyectil> proyectilesEnemigos = new ArrayList<Proyectil>();
 	private static List<Proyectil> proyectilesJugador = new ArrayList<Proyectil>();
 	private static List<Caja> cajasEscenario = new ArrayList<Caja>();
 	private static Jugador jugador = new Jugador(360, 450);
-	private static Escenario escenario = new Escenario();
+	private static Escenario escenario = new Escenario(anchoJuego, altoJuego);
 	private static ControladorJuego controlador = new ControladorJuego(false);
 
-	public static List<Nave> getNavesenemigas() {
+	public static List<Nave> getNavesEnemigas() {
 		return navesEnemigas;
 	}
 
@@ -107,7 +110,7 @@ public class MotorJuego {
 	public static void main(String[] args)
 	{
 		/* Ventana que encapsula al Juego. */
-		VentanaJuego ventana = new VentanaJuego();
+		VentanaJuego ventana = new VentanaJuego(anchoJuego, altoJuego);
 		ventana.setVisible(true);
 		ventana.setResizable(false);
 		ventana.addKeyListener(new KeyPressedController(controlador));
@@ -129,6 +132,7 @@ public class MotorJuego {
 
 		/* Controlador del Juego. */
 		controlador.agregarKeyPressObservador(new TeclaEscuchador(jugador));
+		controlador.agregarObjetoVivo(escenario);
 		controlador.agregarObjetoVivo(jugador);
 		controlador.agregarObjetoVivo(infoJugador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());

@@ -13,18 +13,18 @@ public class LaserProy extends Proyectil
 		super();
 	}
 
-	private LaserProy(int posX, int posY)
+	private LaserProy(int posX, int posY, int unSentido)
 	{
 		this.cuerpo = new Rectangle(posX, posY, 5, 10);
-		this.formaVuelo = new Recto(5);
+		this.formaVuelo = new Recto(5, unSentido);
 		this.danio = new Energia(50);
 		this.vista = vistasFactory.getLaserVista();
 	}
 	
 	@Override
-	public Proyectil crearInstancia(int posX, int posY)
+	public Proyectil crearInstancia(int posX, int posY, int unSentido)
 	{
-		return new LaserProy(posX, posY);
+		return new LaserProy(posX, posY, unSentido);
 	}
 
 	@Override

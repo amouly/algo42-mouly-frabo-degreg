@@ -35,8 +35,5 @@ public abstract class Proyectil extends Movil
 		EscuchadorEventos.manejarMuerteProyectil(this);
 	}
 	
-	public abstract Proyectil crearInstancia(int posX, int posY);
-
+	public abstract Proyectil crearInstancia(int posX, int posY, int unSentido);
 }
-
-
