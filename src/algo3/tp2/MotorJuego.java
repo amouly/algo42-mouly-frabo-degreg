@@ -7,6 +7,7 @@ import algo3.tp2.eventos.TeclaEscuchador;
 import algo3.tp2.misiones.AdministradorMisiones;
 import algo3.tp2.modelo.Escenario;
 import algo3.tp2.modelo.auxiliares.InfoJugador;
+import algo3.tp2.modelo.inmoviles.Caja;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
@@ -22,6 +23,7 @@ public class MotorJuego {
 	private static List<Nave> navesEnemigas = new ArrayList<Nave>();
 	private static List<Proyectil> proyectilesEnemigos = new ArrayList<Proyectil>();
 	private static List<Proyectil> proyectilesJugador = new ArrayList<Proyectil>();
+	private static List<Caja> cajasEscenario = new ArrayList<Caja>();
 	private static Jugador jugador = new Jugador(360, 450);
 	private static Escenario escenario = new Escenario();
 	private static ControladorJuego controlador = new ControladorJuego(false);
@@ -42,7 +44,14 @@ public class MotorJuego {
 		return jugador;
 	}
 
-	public static void agregarNaveEnemiga(Nave unaNave) {
+	public static void agregarCajaEscenario(Caja unaCaja)
+	{
+		cajasEscenario.add(unaCaja);
+		agregarVistaInmovil(unaCaja);
+	}
+
+	public static void agregarNaveEnemiga(Nave unaNave)
+	{
 		navesEnemigas.add(unaNave);
 		agregarVista(unaNave);
 	}
@@ -78,6 +87,16 @@ public class MotorJuego {
 		vista.setPosicionable(movil);
 
 		controlador.agregarObjetoVivo(movil);
+		controlador.agregarDibujable(vista);
+	}
+	
+	/* AGREGADO AUXILIAR */
+	public static void agregarVistaInmovil(Caja unInmovil)
+	{
+		Dibujable vista = unInmovil.getVista();
+		vista.setPosicionable(unInmovil);
+
+		controlador.agregarObjetoVivo(unInmovil);
 		controlador.agregarDibujable(vista);
 	}
 	

@@ -15,6 +15,16 @@ public abstract class Proyectil extends Movil
 		return danio;
 	}
 	
+	public Energia getEnergia()
+	{
+		return tanqueEnergia;
+	}
+
+	public void restarEnergia(Energia energia)
+	{
+		tanqueEnergia.disminuir(energia);
+	}
+	
 	@Override
 	public void vivir() {
 		Point delta = formaVuelo.getVariacionPosicion();

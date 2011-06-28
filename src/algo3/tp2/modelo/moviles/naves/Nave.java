@@ -20,6 +20,16 @@ public abstract class Nave extends Movil
 		this.tanqueEnergia = new Energia(100);
 	}
 	
+	public Energia getEnergia()
+	{
+		return tanqueEnergia;
+	}
+	
+	public void restarEnergia(Energia energia)
+	{
+		tanqueEnergia.disminuir(energia);
+	}
+	
 	@Override
 	public void vivir()
 	{
@@ -29,17 +39,20 @@ public abstract class Nave extends Movil
 		
 		/* Chequea colisión con los proyectiles del jugador. */
 		List<Proyectil> proyectiles = MotorJuego.getProyectilesJugador();
-		synchronized (proyectiles) {
+		synchronized (proyectiles)
+		{
 			Iterator<Proyectil> it = proyectiles.iterator();
 			Proyectil proyectil;
-			while (it.hasNext() && isAlive()) {
+			while (it.hasNext() && isAlive())
+			{
 				proyectil = it.next();
 				colisionar(proyectil);
 			}
 		}
 		
 		/* Chequea colisión con la nave del jugador. */
-		if (isAlive()) {
+		if (isAlive())
+		{
 			colisionar(MotorJuego.getJugador());
 		}
 		else
@@ -48,11 +61,13 @@ public abstract class Nave extends Movil
 		}
 	}
 	
-	public void morir() {
+	public void morir()
+	{
 		EscuchadorEventos.manejarMuerteNaveEnemiga(this);
 	}
 	
-	public boolean isAlive() {
+	public boolean isAlive()
+	{
 		return tanqueEnergia.tieneEnergia();
 	}
 	
@@ -70,22 +85,27 @@ public abstract class Nave extends Movil
 		puntaje += unValor;
 	}
 	
-	private void colisionar(Proyectil proyectil) {
-		if(proyectil.getCuerpo().intersects(this.getCuerpo())) {
+	private void colisionar(Proyectil proyectil)
+	{
+		if(proyectil.getCuerpo().intersects(this.getCuerpo()))
+		{
 			proyectil.morir();
 			this.recibirDanio(proyectil);
 			System.out.println("IMPACTO DE BALA");
 		}
 	}
 	
-	private void colisionar(Nave nave) {
-		if(nave.getCuerpo().intersects(this.getCuerpo())) {
+	private void colisionar(Nave nave)
+	{
+		if(nave.getCuerpo().intersects(this.getCuerpo()))
+		{
 			nave.morir();
 			this.morir();
 		}
 	}
 	
-	private void recibirDanio(Proyectil proyectil) {
+	private void recibirDanio(Proyectil proyectil)
+	{
 		this.tanqueEnergia.disminuir(proyectil.getDanio());
 		System.out.println("ENERGIA: " + tanqueEnergia);
 	}

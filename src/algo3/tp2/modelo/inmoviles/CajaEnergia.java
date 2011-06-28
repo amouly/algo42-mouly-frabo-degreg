@@ -1,19 +1,39 @@
 package algo3.tp2.modelo.inmoviles;
 
+import java.awt.Rectangle;
+
 import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.auxiliares.Energia;
+import ar.uba.fi.algo3.titiritero.Dibujable;
 
-public class CajaEnergia extends ObjetoPosicionable
+public class CajaEnergia extends Caja
 {
-	private int cantidad;
+	private Energia energia;
 	
-	public int getCantidad()
+	public CajaEnergia(int posX, int posY)
 	{
-		return cantidad;
+		this.energia = new Energia(0);
+		this.cuerpo = new Rectangle(posX, posY, 25, 25);
+		this.vista = vistasFactory.getCajaEnergiaVista();
 	}
 	
-	public void setCantidad(int unValor)
+	public Energia getContenido()
 	{
-		this.cantidad = unValor;
+		return energia;
+	}
+	
+	public void vivir()
+	{
+
+	}
+	
+	public void setContenido(Energia unaEnergia)
+	{
+		this.energia.setEnergia(unaEnergia.getEnergia());
+	}
+	
+	public Dibujable getVista()
+	{
+		return vista;
 	}
 }

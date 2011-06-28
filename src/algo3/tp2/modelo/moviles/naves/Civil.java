@@ -15,7 +15,8 @@ public class Civil extends Nave
 	}
 
 	@Override
-	public Dibujable getVista() {
+	public Dibujable getVista()
+	{
 		return vista;
 	}
 }
