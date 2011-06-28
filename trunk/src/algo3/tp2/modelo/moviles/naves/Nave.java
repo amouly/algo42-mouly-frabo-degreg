@@ -9,6 +9,7 @@ import algo3.tp2.eventos.EscuchadorEventos;
 import algo3.tp2.modelo.auxiliares.Energia;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
+import algo3.tp2.modelo.inmoviles.CajaEnergia;
 
 public abstract class Nave extends Movil
 {
@@ -28,6 +29,21 @@ public abstract class Nave extends Movil
 	public void restarEnergia(Energia energia)
 	{
 		tanqueEnergia.disminuir(energia);
+	}
+	
+	public void aumentarEnergia(Energia unaEnergia)
+	{
+		tanqueEnergia.aumentar(unaEnergia);
+	}
+	
+	public void soltarCajaEnergia(int unValor)
+	{
+		/* Se crea una Caja con Energia. */
+		Energia unaEnergia = new Energia(unValor);
+		CajaEnergia unaCajaEnergia = new CajaEnergia(this.getX()+25, this.getY());
+		unaCajaEnergia.setContenido(unaEnergia);
+		
+		EscuchadorEventos.manejarCajaSoltada(unaCajaEnergia);
 	}
 	
 	@Override

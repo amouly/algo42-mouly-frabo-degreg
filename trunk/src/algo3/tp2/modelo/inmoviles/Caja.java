@@ -7,9 +7,6 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public abstract class Caja extends ObjetoPosicionable implements ObjetoVivo
-{
-	protected static VistasFactory vistasFactory = new VistasFactoryImpl();
-	protected Dibujable vista;
-	
+{	
 	public abstract Dibujable getVista();
 }
