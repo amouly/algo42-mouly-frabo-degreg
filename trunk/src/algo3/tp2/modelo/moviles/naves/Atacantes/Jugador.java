@@ -40,7 +40,6 @@ public class Jugador extends NaveAtacante {
 		return unArma.getCantidadBalas();
 	}
 
-	@Override
 	public Dibujable getVista() {
 		return vista;
 	}

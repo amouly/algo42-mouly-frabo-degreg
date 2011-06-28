@@ -1,35 +1,43 @@
 package algo3.tp2.modelo.auxiliares;
 
 /* Define el comportamiento de un Tanque de Energía. */
-public class Energia {
+public class Energia
+{
 	private int energia;
 	
-	public Energia(int energia) {
-		this.energia = energia;
+	public Energia(int unaEnergia)
+	{
+		this.energia = unaEnergia;
 	}
 	
-	public boolean tieneEnergia() {
+	public boolean tieneEnergia()
+	{
 		return energia > 0;
 	}
 
-	public void setEnergia(int energia) {
-		this.energia = energia;
+	public void setEnergia(int unValor)
+	{
+		this.energia = unValor;
 	}
 	
-	public void aumentar(Energia energia) {
-		this.energia += energia.getEnergia();
+	public void aumentar(Energia unaEnergia)
+	{
+		this.energia += unaEnergia.getEnergia();
 	}
 	
-	public void disminuir(Energia energia) {
-		this.energia -= energia.getEnergia();
+	public void disminuir(Energia unaEnergia)
+	{
+		this.energia -= unaEnergia.getEnergia();
 	}
 	
-	private int getEnergia() {
+	public int getEnergia()
+	{
 		return energia;
 	}
 	
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return Integer.toString(this.energia);
 	}
 }

@@ -35,6 +35,11 @@ public abstract class NaveAtacante extends Nave
 		//TODO: hacer que dispare cada x tiempo.
 	}
 	
+	public void morir()
+	{
+		EscuchadorEventos.manejarMuerteNaveEnemiga(this);
+	}
+	
 	public void disparar()
 	{
 		try
