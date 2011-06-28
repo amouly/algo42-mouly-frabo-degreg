@@ -8,6 +8,7 @@ import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.auxiliares.Energia;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
+/* Implementa una Caja que contiene un Objeto del tipo Energia. */
 public class CajaEnergia extends Caja
 {
 	private Energia energia;
@@ -26,12 +27,13 @@ public class CajaEnergia extends Caja
 	
 	public void vivir()
 	{
+		/* Chequea si el Cuerpo del Jugador choca a su propio Cuerpo. */
 		if(MotorJuego.getJugador().getCuerpo().intersects(this.getCuerpo()))
 		{
 			MotorJuego.getJugador().aumentarEnergia(this.energia);
 			EscuchadorEventos.manejarCajaTomada(this);
 			
-			System.out.println("CAJA DE ENERGIA TOMADA");
+			System.out.println("Caja de Energia tomada.");
 		}
 	}
 	

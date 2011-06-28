@@ -18,4 +18,5 @@ public abstract class Movil extends ObjetoPosicionable
 	
 	public abstract Dibujable getVista();
 	
+	public abstract void morir();
 }

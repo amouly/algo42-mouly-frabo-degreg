@@ -13,7 +13,7 @@ public class Caza extends NaveAtacante
 	{
 		super();
 		valor = 30;
-		this.formaVuelo = new Recto(1);
+		this.formaVuelo = new Recto(1, -1);
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getCazaVista();
 		

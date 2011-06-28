@@ -1,13 +1,14 @@
 package algo3.tp2.eventos;
 
 import algo3.tp2.MotorJuego;
+import algo3.tp2.eventos.Escuchador;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 import algo3.tp2.modelo.auxiliares.Energia;
 import algo3.tp2.modelo.auxiliares.Arma;
 import algo3.tp2.modelo.inmoviles.Caja;
 
-public class EscuchadorEventos
+public class EscuchadorEventos //implements Escuchador
 {
 	public static void manejarDisparoJugador(Proyectil proyectil)
 	{

@@ -13,18 +13,18 @@ public class TorpedoProy extends Proyectil
 		super();
 	}
 
-	private TorpedoProy(int posX, int posY)
+	private TorpedoProy(int posX, int posY, int unSentido)
 	{
 		this.cuerpo = new Rectangle(posX, posY, 5, 10);
-		this.formaVuelo = new Recto(2);
+		this.formaVuelo = new Recto(2, unSentido);
 		this.danio = new Energia(100);
 		this.vista = vistasFactory.getTorpedoVista();
 	}
 		
 	@Override
-	public Proyectil crearInstancia(int posX, int posY)
+	public Proyectil crearInstancia(int posX, int posY, int unSentido)
 	{
-		return new TorpedoProy(posX, posY);
+		return new TorpedoProy(posX, posY, unSentido);
 	}
 
 	@Override

@@ -10,7 +10,7 @@ public abstract class Arma extends ObjetoPosicionable
 	protected Proyectil proyectil;
 	protected String nombre;
 	
-	public Proyectil dispararBala(int posX, int posY) throws SinBalasException
+	public Proyectil dispararBala(int posX, int posY, int unSentido) throws SinBalasException
 	{
 		if(cantidadBalas > 0)
 		{
@@ -18,7 +18,7 @@ public abstract class Arma extends ObjetoPosicionable
 			
 			System.out.println("Arma disparada (class Arma).");
 			
-			return proyectil.crearInstancia(posX+20, posY);
+			return proyectil.crearInstancia(posX+20, posY, unSentido);
 		}
 		else
 		{

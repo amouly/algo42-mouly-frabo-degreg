@@ -6,9 +6,9 @@ public class Recto implements Vuelo
 {
 	private final Point variacion;
 	
-	public Recto(int unaAmplitud)
+	public Recto(int unaAmplitud, int unSentido)
 	{
-		variacion = new Point(0, -unaAmplitud);
+		variacion = new Point(0, unSentido*unaAmplitud);
 	}
 	
 	@Override
