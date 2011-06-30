@@ -37,6 +37,22 @@ public class TeclaEscuchador implements KeyPressedObservador {
 				jugador.moverEnX(5);
 			break;
 			
+			case KeyEvent.VK_1:
+				jugador.cambiarArmaActiva(0);
+			break;
+			
+			case KeyEvent.VK_2:
+				jugador.cambiarArmaActiva(1);
+			break;
+			
+			case KeyEvent.VK_3:
+				jugador.cambiarArmaActiva(2);
+			break;
+			
+			case KeyEvent.VK_4:
+				jugador.cambiarArmaActiva(3);
+			break;
+			
 			case KeyEvent.VK_SPACE:
 				jugador.disparar();
 				System.out.println("El Jugador disparó.");

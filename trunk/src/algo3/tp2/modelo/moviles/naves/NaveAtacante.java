@@ -30,6 +30,14 @@ public abstract class NaveAtacante extends Nave
 		return armas.get(armaActiva);
 	}
 	
+	public void cambiarArmaActiva(int unaPos)
+	{
+		if(armas.get(unaPos) != null)
+		{
+			armaActiva = unaPos;
+		}
+	}
+	
 	@Override
 	public void vivir()
 	{
