@@ -30,8 +30,6 @@ public class CajaEnergia extends Caja
 		{
 			motorJuego.getJugador().aumentarEnergia(this.energia);
 			escuchadorEventos.manejarCajaTomada(this);
-			
-			System.out.println("Caja de Energia tomada.");
 		}
 	}
 	

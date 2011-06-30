@@ -42,6 +42,7 @@ public class EscuchadorEventosAlgo42 implements EscuchadorEventos
 	public void manejarMuerteJugador(Jugador elJugador)
 	{
 		System.out.println("- El Jugador fue asesinado.");
+		//ManejadorMensajes.jugadorMuerto();
 	}
 
 	@Override
@@ -88,8 +89,10 @@ public class EscuchadorEventosAlgo42 implements EscuchadorEventos
 	}
 
 	@Override
-	public void manejarCajaSoltada(Caja unaCaja) {
-		class unThread implements Runnable {
+	public void manejarCajaSoltada(Caja unaCaja)
+	{
+		class unThread implements Runnable
+		{
 			private final Caja caja;
 
 			public unThread(Caja unaCaja) {
@@ -101,6 +104,8 @@ public class EscuchadorEventosAlgo42 implements EscuchadorEventos
 				motorJuego.agregarCajaEscenario(caja);
 			}
 		}
+
+		System.out.println("- Caja soltada.");
 
 		new Thread(new unThread(unaCaja)).start();
 	}
@@ -119,6 +124,8 @@ public class EscuchadorEventosAlgo42 implements EscuchadorEventos
 				motorJuego.quitarCajaEscenario(caja);
 			}
 		}
+
+		System.out.println("- Caja tomada.");
 
 		new Thread(new unThread(unaCaja)).start();
 	}

@@ -21,12 +21,12 @@ public class TeclaEscuchador implements KeyPressedObservador {
 		{
 			case KeyEvent.VK_DOWN:
 				jugador.moverEnY(5);
-				System.out.println("El Jugador se movió a la izquierda.");
+				//System.out.println("El Jugador se movió a la izquierda.");
 			break;
 			
 			case KeyEvent.VK_LEFT:
 				jugador.moverEnX(-5);
-				System.out.println("El Jugador se movió a la derecha.");
+				//System.out.println("El Jugador se movió a la derecha.");
 			break;
 			
 			case KeyEvent.VK_UP:
@@ -55,11 +55,11 @@ public class TeclaEscuchador implements KeyPressedObservador {
 			
 			case KeyEvent.VK_SPACE:
 				jugador.disparar();
-				System.out.println("El Jugador disparó.");
+				//System.out.println("El Jugador disparó.");
 			break;
 
 			default:
-				System.out.println("No apreto una tecla posta: " + event.getKeyCode());
+				//System.out.println("No apreto una tecla posta: " + event.getKeyCode());
 			break;
 		}
 	}

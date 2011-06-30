@@ -59,6 +59,7 @@ public abstract class Nave extends Movil
 		{
 			Iterator<Proyectil> it = proyectiles.iterator();
 			Proyectil proyectil;
+			
 			while (it.hasNext() && isAlive())
 			{
 				proyectil = it.next();
@@ -73,7 +74,7 @@ public abstract class Nave extends Movil
 		}
 		else
 		{
-			morir();
+			this.morir();
 		}
 	}
 	
@@ -108,7 +109,7 @@ public abstract class Nave extends Movil
 		{
 			proyectil.morir();
 			this.recibirDanio(proyectil);
-			System.out.println("IMPACTO DE BALA");
+			//System.out.println("IMPACTO DE BALA");
 		}
 	}
 	
@@ -124,6 +125,6 @@ public abstract class Nave extends Movil
 	private void recibirDanio(Proyectil proyectil)
 	{
 		this.tanqueEnergia.disminuir(proyectil.getDanio());
-		System.out.println("ENERGIA: " + tanqueEnergia);
+		//System.out.println("ENERGIA: " + tanqueEnergia);
 	}
 }
