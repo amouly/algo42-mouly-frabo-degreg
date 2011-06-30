@@ -15,8 +15,6 @@ public abstract class Arma
 		{
 			cantidadBalas--;
 			
-			System.out.println("Arma disparada (class Arma).");
-			
 			return proyectil.crearInstancia(posX+20, posY, unSentido);
 		}
 		else
