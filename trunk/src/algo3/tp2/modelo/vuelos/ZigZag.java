@@ -4,11 +4,11 @@ import java.awt.Point;
 
 public class ZigZag implements Vuelo
 {
-	private int ContadorMovimientos;
-	private int Amplitud; /* Determina la amplitud del movimiento. */
-	private int Periodo = 60; /* Cantidad de movimientos para completar un Zig o un Zag. */
-	private int Sentido;
-	private Point Variacion = new Point();
+	private int contadorMovimientos;
+	private int amplitud; /* Determina la amplitud del movimiento. */
+	private int periodo = 60; /* Cantidad de movimientos para completar un Zig o un Zag. */
+	private int sentido;
+	private Point variacion = new Point();
 	
 	/* 
 	 * Amplitud: Cuanto avanzara en cada movimiento.
@@ -16,23 +16,23 @@ public class ZigZag implements Vuelo
 	*/
 	public ZigZag(int unaAmplitud, int sentidoInicial)
 	{
-		Amplitud = unaAmplitud;
-		Sentido = sentidoInicial;
-		ContadorMovimientos = 0;
+		amplitud = unaAmplitud;
+		sentido = sentidoInicial;
+		contadorMovimientos = 0;
 	}
 	
 	public Point getVariacionPosicion()
 	{
-		if(ContadorMovimientos == Periodo)
+		if(contadorMovimientos == periodo)
 		{
-			Sentido *= -1;
-			ContadorMovimientos = 0;
+			sentido *= -1;
+			contadorMovimientos = 0;
 		}
 		
-		Variacion.setLocation(Amplitud * Sentido, -Amplitud);
+		variacion.setLocation(amplitud * sentido, -amplitud);
 		
-		ContadorMovimientos++;
+		contadorMovimientos++;
 		
-		return Variacion;
+		return variacion;
 	}
 }

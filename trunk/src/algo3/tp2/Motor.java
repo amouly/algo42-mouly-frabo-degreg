@@ -7,8 +7,8 @@ import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 
-public interface Motor {
-
+public interface Motor 
+{
 	public List<Nave> getNavesEnemigas();
 
 	public List<Proyectil> getProyectilesEnemigos();
@@ -30,5 +30,4 @@ public interface Motor {
 	public void agregarProyectilJugador(Proyectil proyectil);
 
 	public void quitarProyectil(Proyectil proyectil);
-
 }

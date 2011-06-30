@@ -11,11 +11,14 @@ public abstract class NaveAtacante extends Nave
 	protected LinkedList<Arma> armas;
 	protected int armaActiva;
 	protected int sentidoDisparo = 1;
+	protected int cantidadDisparos;
+	protected int periodoDisparo;
 	
 	protected NaveAtacante()
 	{
 		super();
 		armaActiva = 0;
+		cantidadDisparos = 0;
 		armas = new LinkedList<Arma>();
 	}
 	
@@ -42,7 +45,13 @@ public abstract class NaveAtacante extends Nave
 	{
 		super.vivir();
 		
-		disparar();
+		if(cantidadDisparos == periodoDisparo)
+		{
+			cantidadDisparos = 0;
+			disparar();
+		}
+		
+		cantidadDisparos++;
 	}
 	
 	public void disparar()
