@@ -29,8 +29,6 @@ public class CajaArma extends Caja
 		{
 			motorJuego.getJugador().agregarArma(this.arma);
 			escuchadorEventos.manejarCajaTomada(this);
-			
-			System.out.println("- Caja de Arma tomada.");
 		}
 	}
 	
