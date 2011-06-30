@@ -17,6 +17,7 @@ public class Bombardero extends NaveAtacante
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getBombarderoVista();
 		
+		this.periodoDisparo = 45;
 		this.agregarArma(new Torpedo());
 	}
 

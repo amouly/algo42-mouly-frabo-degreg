@@ -17,6 +17,7 @@ public class Caza extends NaveAtacante
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getCazaVista();
 		
+		this.periodoDisparo = 50;
 		this.agregarArma(new Laser());
 	}
 

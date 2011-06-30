@@ -17,6 +17,7 @@ public class Avioneta extends NaveAtacante
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.vista = vistasFactory.getAvionetaVista();
 		
+		this.periodoDisparo = 25;
 		this.agregarArma(new Laser());
 	}
 
