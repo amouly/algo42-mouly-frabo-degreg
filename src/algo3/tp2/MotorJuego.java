@@ -81,7 +81,9 @@ public class MotorJuego implements Motor
 
 	@Override
 	public void agregarProyectilEnemigo(Proyectil proyectil) {
-		proyectilesEnemigos.add(proyectil);
+		synchronized (proyectilesEnemigos) {
+			proyectilesEnemigos.add(proyectil);
+		}
 		agregarVista(proyectil);
 	}
 
@@ -98,7 +100,9 @@ public class MotorJuego implements Motor
 		synchronized (proyectilesJugador) {
 			proyectilesJugador.remove(proyectil);
 		}
-		proyectilesEnemigos.remove(proyectil);
+		synchronized (proyectilesEnemigos) {
+			proyectilesEnemigos.remove(proyectil);
+		}
 		
 		quitarVista(proyectil);
 	}
