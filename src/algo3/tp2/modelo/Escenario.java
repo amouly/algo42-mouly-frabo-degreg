@@ -4,8 +4,6 @@ import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.List;
 
-import algo3.tp2.MotorJuego;
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
@@ -20,9 +18,9 @@ public class Escenario extends ObjetoPosicionable
 	@Override 
 	public void vivir()
 	{
-		List<Proyectil> proyectilesJugador = MotorJuego.getProyectilesJugador();
-		List<Proyectil> proyectilesEnemigos = MotorJuego.getProyectilesEnemigos();
-		List<Nave> navesEnemigas = MotorJuego.getNavesEnemigas();
+		List<Proyectil> proyectilesJugador = motorJuego.getProyectilesJugador();
+		List<Proyectil> proyectilesEnemigos = motorJuego.getProyectilesEnemigos();
+		List<Nave> navesEnemigas = motorJuego.getNavesEnemigas();
 		
 		/* Chequea colisión con los proyectiles del Jugador. */
 		synchronized (proyectilesJugador)

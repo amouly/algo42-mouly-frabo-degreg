@@ -1,10 +1,9 @@
 package algo3.tp2.modelo.auxiliares;
 
-import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 
-public abstract class Arma extends ObjetoPosicionable
+public abstract class Arma
 {
 	protected int cantidadBalas;
 	protected Proyectil proyectil;

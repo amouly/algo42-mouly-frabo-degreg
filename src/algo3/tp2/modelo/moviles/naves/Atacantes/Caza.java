@@ -26,6 +26,7 @@ public class Caza extends NaveAtacante
 		return vista;
 	}
 	
+	@Override
 	public void morir()
 	{
 		super.morir();

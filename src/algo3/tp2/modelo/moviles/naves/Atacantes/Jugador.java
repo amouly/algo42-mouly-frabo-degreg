@@ -2,11 +2,9 @@ package algo3.tp2.modelo.moviles.naves.atacantes;
 
 import java.awt.Rectangle;
 
-import algo3.tp2.eventos.EscuchadorEventos;
-import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.auxiliares.Arma;
 import algo3.tp2.modelo.auxiliares.armas.Laser;
-import algo3.tp2.modelo.auxiliares.armas.Torpedo;
+import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
@@ -19,6 +17,7 @@ public class Jugador extends NaveAtacante {
 		this.cuerpo = new Rectangle(posInicialX, posInicialY, 65, 45);
 		this.agregarArma(new Laser());
 		this.vista = vistasFactory.getJugadorVista();
+		
 	}
 
 	public void moverEnX(int deltaX)
@@ -42,7 +41,7 @@ public class Jugador extends NaveAtacante {
 	{
 		try
 		{
-			EscuchadorEventos.manejarDisparoJugador(armas.get(armaActiva).dispararBala(getX(), getY(), this.sentidoDisparo));
+			escuchadorEventos.manejarDisparoJugador(armas.get(armaActiva).dispararBala(getX(), getY(), this.sentidoDisparo));
 			
 			System.out.println("- Arma disparada por Jugador (class NaveAtacante).");
 		}
@@ -58,6 +57,7 @@ public class Jugador extends NaveAtacante {
 		return unArma.getCantidadBalas();
 	}
 
+	@Override
 	public Dibujable getVista() {
 		return vista;
 	}

@@ -4,12 +4,10 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.List;
 
-import algo3.tp2.MotorJuego;
-import algo3.tp2.eventos.EscuchadorEventos;
 import algo3.tp2.modelo.auxiliares.Energia;
+import algo3.tp2.modelo.inmoviles.CajaEnergia;
 import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
-import algo3.tp2.modelo.inmoviles.CajaEnergia;
 
 public abstract class Nave extends Movil
 {
@@ -21,11 +19,13 @@ public abstract class Nave extends Movil
 		this.tanqueEnergia = new Energia(100);
 	}
 	
+	@Override
 	public Energia getEnergia()
 	{
 		return tanqueEnergia;
 	}
 	
+	@Override
 	public void restarEnergia(Energia energia)
 	{
 		tanqueEnergia.disminuir(energia);
@@ -43,7 +43,7 @@ public abstract class Nave extends Movil
 		CajaEnergia unaCajaEnergia = new CajaEnergia(this.getX()+25, this.getY());
 		unaCajaEnergia.setContenido(unaEnergia);
 		
-		EscuchadorEventos.manejarCajaSoltada(unaCajaEnergia);
+		escuchadorEventos.manejarCajaSoltada(unaCajaEnergia);
 	}
 	
 	@Override
@@ -54,7 +54,7 @@ public abstract class Nave extends Movil
 		cuerpo.setLocation((int) cuerpo.getX() - (int) variacionPos.getX(), (int) cuerpo.getY() - (int) variacionPos.getY());
 		
 		/* Chequea colisión con los proyectiles del jugador. */
-		List<Proyectil> proyectiles = MotorJuego.getProyectilesJugador();
+		List<Proyectil> proyectiles = motorJuego.getProyectilesJugador();
 		synchronized (proyectiles)
 		{
 			Iterator<Proyectil> it = proyectiles.iterator();
@@ -69,7 +69,7 @@ public abstract class Nave extends Movil
 		/* Chequea colisión con la nave del jugador. */
 		if (isAlive())
 		{
-			colisionar(MotorJuego.getJugador());
+			colisionar(motorJuego.getJugador());
 		}
 		else
 		{
@@ -77,9 +77,10 @@ public abstract class Nave extends Movil
 		}
 	}
 	
+	@Override
 	public void morir()
 	{
-		EscuchadorEventos.manejarMuerteNaveEnemiga(this);
+		escuchadorEventos.manejarMuerteNaveEnemiga(this);
 	}
 	
 	public boolean isAlive()

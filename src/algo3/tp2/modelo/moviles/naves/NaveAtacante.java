@@ -2,9 +2,8 @@ package algo3.tp2.modelo.moviles.naves;
 
 import java.util.LinkedList;
 
-import algo3.tp2.eventos.EscuchadorEventos;
-import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.auxiliares.Arma;
+import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.inmoviles.CajaArma;
 
 public abstract class NaveAtacante extends Nave
@@ -50,7 +49,7 @@ public abstract class NaveAtacante extends Nave
 	{
 		try
 		{
-			EscuchadorEventos.manejarDisparoEnemigo(armas.get(armaActiva).dispararBala(getX(), getY(), sentidoDisparo));
+			escuchadorEventos.manejarDisparoEnemigo(armas.get(armaActiva).dispararBala(getX(), getY(), sentidoDisparo));
 			
 			System.out.println("Arma disparada por Enemigo (class NaveAtacante).");
 		}
@@ -66,6 +65,6 @@ public abstract class NaveAtacante extends Nave
 		CajaArma unaCajaArma = new CajaArma(this.getX(), this.getY());
 		unaCajaArma.setContenido(this.getArmaActiva());
 		
-		EscuchadorEventos.manejarCajaSoltada(unaCajaArma);
+		escuchadorEventos.manejarCajaSoltada(unaCajaArma);
 	}
 }

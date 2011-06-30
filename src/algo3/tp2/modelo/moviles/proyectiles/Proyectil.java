@@ -2,7 +2,6 @@ package algo3.tp2.modelo.moviles.proyectiles;
 
 import java.awt.Point;
 
-import algo3.tp2.eventos.EscuchadorEventos;
 import algo3.tp2.modelo.auxiliares.Energia;
 import algo3.tp2.modelo.moviles.Movil;
 
@@ -15,11 +14,13 @@ public abstract class Proyectil extends Movil
 		return danio;
 	}
 	
+	@Override
 	public Energia getEnergia()
 	{
 		return tanqueEnergia;
 	}
 
+	@Override
 	public void restarEnergia(Energia energia)
 	{
 		tanqueEnergia.disminuir(energia);
@@ -31,8 +32,9 @@ public abstract class Proyectil extends Movil
 		this.cuerpo.translate(new Double(delta.getX()).intValue(), new Double(delta.getY()).intValue());
 	}
 	
+	@Override
 	public void morir() {
-		EscuchadorEventos.manejarMuerteProyectil(this);
+		escuchadorEventos.manejarMuerteProyectil(this);
 	}
 	
 	public abstract Proyectil crearInstancia(int posX, int posY, int unSentido);
