@@ -2,9 +2,6 @@ package algo3.tp2.modelo.inmoviles;
 
 import java.awt.Rectangle;
 
-import algo3.tp2.MotorJuego;
-import algo3.tp2.eventos.EscuchadorEventos;
-import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.auxiliares.Arma;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 
@@ -24,13 +21,14 @@ public class CajaArma extends Caja
 		return arma;
 	}
 	
+	@Override
 	public void vivir()
 	{
 		/* Chequea si el Cuerpo del Jugador choca a su propio Cuerpo. */
-		if(MotorJuego.getJugador().getCuerpo().intersects(this.getCuerpo()))
+		if(motorJuego.getJugador().getCuerpo().intersects(this.getCuerpo()))
 		{
-			MotorJuego.getJugador().agregarArma(this.arma);
-			EscuchadorEventos.manejarCajaTomada(this);
+			motorJuego.getJugador().agregarArma(this.arma);
+			escuchadorEventos.manejarCajaTomada(this);
 			
 			System.out.println("- Caja de Arma tomada.");
 		}
@@ -41,6 +39,7 @@ public class CajaArma extends Caja
 		this.arma = unArma;
 	}
 	
+	@Override
 	public Dibujable getVista()
 	{
 		return vista;

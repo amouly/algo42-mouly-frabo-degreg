@@ -26,6 +26,7 @@ public class Avioneta extends NaveAtacante
 		return vista;
 	}
 	
+	@Override
 	public void morir()
 	{
 		super.morir();

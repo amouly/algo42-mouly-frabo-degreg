@@ -3,13 +3,13 @@ package algo3.tp2;
 import java.util.ArrayList;
 import java.util.List;
 
+import algo3.tp2.eventos.EscuchadorEventosAlgo42;
 import algo3.tp2.eventos.TeclaEscuchador;
 import algo3.tp2.misiones.AdministradorMisiones;
 import algo3.tp2.modelo.Escenario;
+import algo3.tp2.modelo.ObjetoPosicionable;
 import algo3.tp2.modelo.auxiliares.InfoJugador;
 import algo3.tp2.modelo.inmoviles.Caja;
-import algo3.tp2.modelo.ObjetoPosicionable;
-import algo3.tp2.modelo.moviles.Movil;
 import algo3.tp2.modelo.moviles.naves.Nave;
 import algo3.tp2.modelo.moviles.naves.atacantes.Jugador;
 import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
@@ -20,7 +20,7 @@ import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 
-public class MotorJuego
+public class MotorJuego implements Motor
 {
 	private static final int anchoJuego = 800;
 	private static final int altoJuego = 600;
@@ -32,58 +32,69 @@ public class MotorJuego
 	private static Escenario escenario = new Escenario(anchoJuego, altoJuego);
 	private static ControladorJuego controlador = new ControladorJuego(false);
 
-	public static List<Nave> getNavesEnemigas() {
+	@Override
+	public List<Nave> getNavesEnemigas() {
 		return navesEnemigas;
 	}
 
-	public static List<Proyectil> getProyectilesEnemigos() {
+	@Override
+	public List<Proyectil> getProyectilesEnemigos() {
 		return proyectilesEnemigos;
 	}
 
-	public static List<Proyectil> getProyectilesJugador() {
+	@Override
+	public List<Proyectil> getProyectilesJugador() {
 		return proyectilesJugador;
 	}
 
-	public static Jugador getJugador() {
+	@Override
+	public Jugador getJugador() {
 		return jugador;
 	}
 
-	public static void agregarCajaEscenario(Caja unaCaja)
+	@Override
+	public void agregarCajaEscenario(Caja unaCaja)
 	{
 		cajasEscenario.add(unaCaja);
 		agregarVista(unaCaja);
 	}
 	
-	public static void quitarCajaEscenario(Caja unaCaja)
+	@Override
+	public void quitarCajaEscenario(Caja unaCaja)
 	{
 		cajasEscenario.remove(unaCaja);
 		quitarVista(unaCaja);
 	}
 
-	public static void agregarNaveEnemiga(Nave unaNave)
+	@Override
+	public void agregarNaveEnemiga(Nave unaNave)
 	{
 		navesEnemigas.add(unaNave);
 		agregarVista(unaNave);
 	}
 	
-	public static void quitarNaveEnemiga(Nave unaNave) {
+	@Override
+	public void quitarNaveEnemiga(Nave unaNave) {
 		navesEnemigas.remove(unaNave);
 		quitarVista(unaNave);
 	}
 
-	public static void agregarProyectilEnemigo(Proyectil proyectil) {
+	@Override
+	public void agregarProyectilEnemigo(Proyectil proyectil) {
 		proyectilesEnemigos.add(proyectil);
 		agregarVista(proyectil);
 	}
 
-	public static void agregarProyectilJugador(Proyectil proyectil) {
+	@Override
+	public void agregarProyectilJugador(Proyectil proyectil) {
 		synchronized (proyectilesJugador) {
 			proyectilesJugador.add(proyectil);
 		}
 		agregarVista(proyectil);
 	}
 	
-	public static void quitarProyectil(Proyectil proyectil) {
+	@Override
+	public void quitarProyectil(Proyectil proyectil) {
 		synchronized (proyectilesJugador) {
 			proyectilesJugador.remove(proyectil);
 		}
@@ -92,7 +103,7 @@ public class MotorJuego
 		quitarVista(proyectil);
 	}
 
-	private static void agregarVista(ObjetoPosicionable unPosicionable)
+	private void agregarVista(ObjetoPosicionable unPosicionable)
 	{
 		Dibujable vista = unPosicionable.getVista();
 		vista.setPosicionable(unPosicionable);
@@ -101,7 +112,7 @@ public class MotorJuego
 		controlador.agregarDibujable(vista);
 	}
 	
-	private static void quitarVista(ObjetoPosicionable unPosicionable) {
+	private void quitarVista(ObjetoPosicionable unPosicionable) {
 		
 		controlador.removerDibujable(unPosicionable.getVista());
 		controlador.removerObjetoVivo(unPosicionable);
@@ -109,6 +120,10 @@ public class MotorJuego
 
 	public static void main(String[] args)
 	{
+		Motor motorJuego = new MotorJuego();
+		ObjetoPosicionable.setMotor(motorJuego);
+		ObjetoPosicionable.setEscuchadorEventos(new EscuchadorEventosAlgo42(motorJuego));
+		
 		/* Ventana que encapsula al Juego. */
 		VentanaJuego ventana = new VentanaJuego(anchoJuego, altoJuego);
 		ventana.setVisible(true);
@@ -142,7 +157,7 @@ public class MotorJuego
 		controlador.agregarDibujable(jugadorVista);
 
 		/* Se crean las Misiones. */
-		AdministradorMisiones.comenzarMisiones();
+		AdministradorMisiones.comenzarMisiones(motorJuego);
 
 		/* Se agrega el panel que contiene la informacion del Jugador. */
 		controlador.agregarDibujable(infoJugadorVista);
