@@ -42,7 +42,7 @@ public abstract class NaveAtacante extends Nave
 	{
 		super.vivir();
 		
-		//Hacer que la Nave dispare.
+		disparar();
 	}
 	
 	public void disparar()
