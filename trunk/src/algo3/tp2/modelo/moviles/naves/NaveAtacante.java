@@ -50,12 +50,10 @@ public abstract class NaveAtacante extends Nave
 		try
 		{
 			escuchadorEventos.manejarDisparoEnemigo(armas.get(armaActiva).dispararBala(getX(), getY(), sentidoDisparo));
-			
-			System.out.println("Arma disparada por Enemigo (class NaveAtacante).");
 		}
 		catch (SinBalasException ex)
 		{
-			System.out.println("El arma del Enemigo no tiene más balas.");
+			//System.out.println("El arma del Enemigo no tiene más balas.");
 		}
 	}
 	

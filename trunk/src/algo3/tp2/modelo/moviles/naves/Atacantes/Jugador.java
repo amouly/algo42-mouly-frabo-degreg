@@ -1,9 +1,12 @@
 package algo3.tp2.modelo.moviles.naves.atacantes;
 
 import java.awt.Rectangle;
+import java.util.Iterator;
+import java.util.List;
 
 import algo3.tp2.modelo.auxiliares.Arma;
 import algo3.tp2.modelo.auxiliares.armas.Laser;
+import algo3.tp2.modelo.moviles.proyectiles.Proyectil;
 import algo3.tp2.modelo.excepciones.SinBalasException;
 import algo3.tp2.modelo.moviles.naves.NaveAtacante;
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -33,7 +36,26 @@ public class Jugador extends NaveAtacante {
 	@Override
 	public void vivir()
 	{
-
+		/* Chequea colisión con los proyectiles Enemigos. */
+		List<Proyectil> proyectilesEnemigos = motorJuego.getProyectilesEnemigos();
+		
+		synchronized (proyectilesEnemigos)
+		{
+			Iterator<Proyectil> it = proyectilesEnemigos.iterator();
+			Proyectil proyectil;
+			
+			while (it.hasNext() && isAlive())
+			{
+				proyectil = it.next();
+				colisionar(proyectil);
+			}
+		}
+	}
+	
+	@Override
+	public void morir()
+	{
+		escuchadorEventos.manejarMuerteJugador(this);
 	}
 	
 	@Override

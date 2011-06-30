@@ -102,7 +102,7 @@ public abstract class Nave extends Movil
 		puntaje += unValor;
 	}
 	
-	private void colisionar(Proyectil proyectil)
+	protected void colisionar(Proyectil proyectil)
 	{
 		if(proyectil.getCuerpo().intersects(this.getCuerpo()))
 		{
