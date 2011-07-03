@@ -6,7 +6,7 @@ public class ZigZag implements Vuelo
 {
 	private int contadorMovimientos;
 	private int amplitud; /* Determina la amplitud del movimiento. */
-	private int periodo = 60; /* Cantidad de movimientos para completar un Zig o un Zag. */
+	private int periodo = 100; /* Cantidad de movimientos para completar un Zig o un Zag. */
 	private int sentido;
 	private Point variacion = new Point();
 	

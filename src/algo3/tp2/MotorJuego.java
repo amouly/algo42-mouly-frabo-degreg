@@ -55,27 +55,45 @@ public class MotorJuego implements Motor
 	@Override
 	public void agregarCajaEscenario(Caja unaCaja)
 	{
-		cajasEscenario.add(unaCaja);
+		synchronized (cajasEscenario)
+		{
+			cajasEscenario.add(unaCaja);
+		}
+		
 		agregarVista(unaCaja);
 	}
 	
 	@Override
 	public void quitarCajaEscenario(Caja unaCaja)
 	{
-		cajasEscenario.remove(unaCaja);
+		synchronized (cajasEscenario)
+		{
+			cajasEscenario.remove(unaCaja);
+		}
+		
 		quitarVista(unaCaja);
 	}
 
 	@Override
 	public void agregarNaveEnemiga(Nave unaNave)
 	{
-		navesEnemigas.add(unaNave);
+		synchronized (navesEnemigas)
+		{
+			navesEnemigas.add(unaNave);
+		}
+		
 		agregarVista(unaNave);
 	}
 	
 	@Override
-	public void quitarNaveEnemiga(Nave unaNave) {
-		navesEnemigas.remove(unaNave);
+	public void quitarNaveEnemiga(Nave unaNave)
+	{
+		synchronized (navesEnemigas)
+		{
+			navesEnemigas.remove(unaNave);
+			
+		}
+		
 		quitarVista(unaNave);
 	}
 
@@ -116,8 +134,8 @@ public class MotorJuego implements Motor
 		controlador.agregarDibujable(vista);
 	}
 	
-	private void quitarVista(ObjetoPosicionable unPosicionable) {
-		
+	private void quitarVista(ObjetoPosicionable unPosicionable) 
+	{
 		controlador.removerDibujable(unPosicionable.getVista());
 		controlador.removerObjetoVivo(unPosicionable);
 	}

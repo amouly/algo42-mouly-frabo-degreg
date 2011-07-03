@@ -6,7 +6,5 @@ import ar.uba.fi.algo3.titiritero.Dibujable;
 
 public abstract class Caja extends ObjetoPosicionable
 {
-	protected MotorJuego elMotor;
-	
 	public abstract Dibujable getVista();
 }

@@ -11,6 +11,6 @@ public class Mision1
 		/* Se agregan algunos Enemigos. */
 		motorJuego.agregarNaveEnemiga(new Avioneta(360, 30));
 		motorJuego.agregarNaveEnemiga(new Bombardero(690, 20));
-		motorJuego.agregarNaveEnemiga(new Bombardero(70, 20));
+		motorJuego.agregarNaveEnemiga(new Bombardero(100, 20));
 	}
 }

@@ -33,9 +33,24 @@ public class Escenario extends ObjetoPosicionable
 				unProyectil = it.next();
 				this.colisionar(unProyectil);
 			}
+		}
 		
-			/* Chequea colisión con las Naves Enemigas.
-
+		/* Chequea colisión con los proyectiles Enemigos. */
+		synchronized (proyectilesEnemigos)
+		{
+			Iterator<Proyectil> it = proyectilesEnemigos.iterator();
+			Proyectil unProyectil;
+			
+			while(it.hasNext())
+			{
+				unProyectil = it.next();
+				this.colisionar(unProyectil);
+			}
+		}
+		
+		/* Chequea colisión con las Naves Enemigas. */
+		synchronized (navesEnemigas)
+		{	
 			Iterator<Nave> it2 = navesEnemigas.iterator();
 			Nave unaNave;
 			
@@ -44,7 +59,6 @@ public class Escenario extends ObjetoPosicionable
 				unaNave = it2.next();
 				this.colisionar(unaNave);
 			}
-			 */
 		}
 	}
 	
